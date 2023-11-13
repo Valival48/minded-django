@@ -44,9 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'administracion.apps.AdministracionConfig',
-    'library.apps.LibraryConfig',
-    'users.apps.UsersConfig',
     'MindED',
     'azureml'
     ]
