@@ -28,6 +28,7 @@ SECRET_KEY = 'django-insecure-wv1m#05%do8#2)c_x+y@$1)_uhpncxmjk)2cc7%4v3juo8n9nu
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = ['https://minded.up.railway.app']
 
 # Configuración para Azure Machine Learning
 AZUREML_WORKSPACE_NAME = 'ModelPredictive'
