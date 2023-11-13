@@ -1,0 +1,504 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intervencion</title>
+  <style>
+    body {
+      font-family: Poppins;
+      margin: 0;
+      padding: 0;
+      background-color: #98D0CD; 
+    }
+    #content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 150px;
+    }
+    h2,h3{           
+      text-align: center;
+    }
+
+    h2{
+      font-size: 60px;
+      margin-top: -16px ;
+    } 
+
+
+    .card {
+      width: 700px; 
+      height: 100%;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 50px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 10px;      
+      
+    }
+
+    .card2 {
+      width: 270px; 
+      height: 550px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 50px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 10px;    
+      text-align: center;        
+    }
+    .card3 {
+      width: 100%; 
+      height: 100px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 50px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);         
+      text-align: center;   
+      justify-content: center;     
+    }
+    .tabs {
+      width: 1100px; 
+      height: 100%;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 50px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 10px;      
+      background-color: #fff;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      overflow: hidden;
+
+    }
+
+
+    .form-group {
+      margin-bottom: 20px;
+      align-items: center;
+    }
+
+    .form-group label {
+      font-weight: bold;
+      margin-right: 10px;
+      display:initial;
+      width: 100px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+
+    .button-group {
+      justify-content: left;      
+    }
+
+    .button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 10px;
+      font-weight: bold;
+      color: #fff;
+      width: 100px;
+      text-align: center;
+    }
+
+    .cancel-button {
+      margin-right: 10px;
+      width: 117px;
+      height: 46px;
+      flex-shrink: 0; 
+      border-radius: 25px;
+      background: #6C757D;
+      text-decoration: none;
+      color: #FFF;
+      text-align: center;
+      font-family: Poppins;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal; 
+      padding: 10px 20px;      
+    }
+
+    input{
+      border: 1px solid rgba(201, 201, 201, 0.50);
+      background: rgba(248, 248, 248, 0.50);
+      padding: 10px;
+      border-radius: 900px;
+      font-family: Poppins;
+    }
+
+    select{
+      border: 1px solid rgba(201, 201, 201, 0.50);
+      background: rgba(248, 248, 248, 0.50);
+      padding: 10px;
+      border-radius: 900px;
+      font-family: Poppins;
+    }
+    .save-button {
+      border-radius: 25px;
+      border-style: none;
+      background: #41C3BC;
+      width: 117px;
+      height: 46px;
+      flex-shrink: 0;
+      color: #FFF;
+      text-align: center;
+      font-family: Poppins;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;     
+    }
+    .content-card{
+      display: flex;
+      justify-content: space-between;
+      height: 170px;
+      margin-bottom: 20px;
+      
+    }
+
+    .card-row {
+      display: flex;
+      justify-content: space-between; 
+    }
+
+    .card {
+      flex: 0 0 calc(33.33% - 20px);
+    }    
+    .inner-card {
+      width: calc(33.33% - 20px);      
+    }
+    .inner-card2 {
+      width: 100%;      
+    }
+
+    .tabs input[type="radio"] {
+  display: none;
+}
+
+.tabs label {
+  padding: 15px 20px;
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  border-bottom: none;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.tabs .tab-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.tabs .tab-item {
+  display: none;
+}
+
+.tabs input[type="radio"]:checked + label {
+  background-color: #fff;
+  border-bottom: 1px solid #fff;
+}
+
+.tabs input[type="radio"]:checked + label + .tab-content {
+  display: block;
+}
+.registro-card {
+  background-color: #ffffff; /* Color de fondo de la tarjeta */
+  border: 1px solid #dddddd; /* Borde de la tarjeta */
+  border-radius: 30px; /* Bordes redondeados */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  padding: 20px; /* Espaciado interior */
+  width: 300px; /* Ancho de la tarjeta */
+  
+}
+.container-cards{
+  display: flex;
+}
+
+  </style>
+</head>
+<body>
+  {% include "Header.html" %}
+  {% block content %}
+  <div id="content">
+    <div class="registro-card">
+      <div style="position: left; top: 80px; left: 370px; color: black;">
+        <h1>{{Intervencion.titulo}}</h1>
+        <p>Datos del paciente:</p>
+        <h4>{{Paciente.nombre}}</h4>
+        <p>Edad:</p>
+        <h4>{{Paciente.edad}}</h4>
+        <p>{{Intervencion.fecha_int}}</p>
+        <h4>Descripción:</h4>
+        <p>{{Intervencion.descripcion}}</p>
+        <img src="{% static 'Imagenes/cerebro2.svg' %}" style="bottom: 0; left: 0; width: 70%;">
+      </div>
+    </div>
+  <div class="tabs">
+    <input type="radio" name="tab-group" id="tab1" checked>
+    <label for="tab1">TCA</label>
+  
+    <input type="radio" name="tab-group" id="tab2">
+    <label for="tab2">Análisis general</label>
+
+   <div class="tab-content"> 
+    <div id="content1" class="tab-item">
+      <div > 
+        <h1 style="display: flex;"><p>Resultado: 
+          {% if Intervencion.resultado_prediccion > 0.0 %}
+          <p style="color: rgb(128, 11, 0);font-size: 30px;margin-left: 10px;"> Rango clínico elevado</p>
+           {% else %}
+          <p style="color: rgb(40, 160, 54);font-size: 30px;margin-left: 10px;"> Rango clínico típico</p>
+          {% endif %}
+        </p></h1>
+      </div>
+      <div class="card3" style="margin-top: -60px;">
+        <div class="inner-card2" style="display: flex;">
+          <h2 style="font-size: 30px; margin-top: 10px;color: #41C3BC;">Riesgo de trastorno de conducta alimentaria (EDRC)</h2>
+          <h2 style="font-size: 60px;margin-left: 50px;">{{ EDR|safe }}</h2>
+          </div>
+      </div>
+      
+      <!-- Agregar tres cards en fila aquí -->
+     <div class="content-card">
+      <div class="card">
+        <h2>{{Intervencion.Pregunta1|add:Intervencion.Pregunta7|add:Intervencion.Pregunta11|add:Intervencion.Pregunta16|add:Intervencion.Pregunta25|add:Intervencion.Pregunta32|add:Intervencion.Pregunta49}}</h1>
+        <h3 style="margin-top: -50px;">Obsesión por la delgadez (DT)</h3>
+      </div>
+      <div class="card">
+        <h2>{{Intervencion.Pregunta4|add:Intervencion.Pregunta5|add:Intervencion.Pregunta28|add:Intervencion.Pregunta38|add:Intervencion.Pregunta46|add:Intervencion.Pregunta53|add:Intervencion.Pregunta61|add:Intervencion.Pregunta64}}</h1>
+        <h3 style="margin-top: -50px;">Bulimia (B)</h3>
+      </div>
+      <div class="card">
+        <h2>{{Intervencion.Pregunta2|add:Intervencion.Pregunta9|add:Intervencion.Pregunta12|add:Intervencion.Pregunta19|add:Intervencion.Pregunta31|add:Intervencion.Pregunta45|add:Intervencion.Pregunta47|add:Intervencion.Pregunta55|add:Intervencion.Pregunta59|add:Intervencion.Pregunta62}}</h1>
+        <h3 style="margin-top: -50px;">Insatisfacción corporal (BD)</h3>
+      </div>
+      
+    </div> 
+      <canvas id="graficoSumaVariables" width="400" height="200"></canvas>
+    </div>
+    <div id="content2" class="tab-item">
+      
+      <div class="card3">
+        <div class="inner-card2" style="display: flex;">
+          <h2 style="font-size: 30px; margin-top: 10px;color: #41C3BC;">Desajuste psicológico general (GPMC)</h2>
+          <h2 style="font-size: 60px;margin-left: 50px;">{{ GPMC|safe }}</h2>
+          </div>
+      </div>
+
+      <div class="container-cards">
+      <div class="card2">
+        <div class="inner-card">
+        <h3 style="font-size: 25px; margin-top: 20px;margin-bottom: 50px;color: #41C3BC;">Ineficacia (IC)</h3>
+        <h4 style="margin-top: -20px ;">Baja autoestima (LSE)</h4>
+        <h2>{{ LSE|safe }}</h2>
+        <h4>Alineación personal (PA)</h4>
+        <h2>{{ PA|safe }}</h2>
+        </div>
+      </div>
+      <div class="card2">
+        <div class="inner-card">
+          <h3 style="font-size: 25px; margin-top: 10px;margin-bottom: 50px;color: #41C3BC;">Problemas interpersonales (IPC)</h3>
+          <h4 style="margin-top: -45px ;">Inseguridad Interpersonal (II)</h4>
+          <h2>{{ II|safe }}</h2>
+          <h4>Desconfianza interpersonal (IA)</h4>
+          <h2>{{ IA|safe }}</h2>
+          </div>
+      </div>
+      <div class="card2">
+        <div class="inner-card">
+          <h3 style="font-size: 25px; margin-top: 10px;margin-bottom: 50px;color: #41C3BC;">Problemas afectivos (APC)</h3>
+          <h4 style="margin-top: -45px ;">Déficit introceptivos (ID)</h4>
+          <h2>{{ ID|safe }}</h2>
+          <h4>Desajuste emocional (ED)</h4>
+          <h2>{{ ED|safe }}</h2>
+          </div>
+      </div>
+      <div class="card2">
+        <div class="inner-card" >
+          <h3 style="font-size: 25px; margin-top: 10px;margin-bottom: 50px;color: #41C3BC;">Exceso de control (OC)</h3>
+          <h4 style="margin-top: -45px ;">Perfeccionismo (P)</h4>
+          <h2>{{ P|safe }}</h2>
+          <h4>Ascetismo (A)</h4>
+          <h2>{{ A|safe }}</h2>
+          </div>
+      </div>
+      
+    </div>
+   
+      <canvas id="graficoSumaVariables2" width="400" height="200"></canvas>
+    </div>
+  </div>
+  </div>
+
+  </div>
+  
+
+</body>
+<script>
+  const tabInputs = document.querySelectorAll('.tabs input[type="radio"]');
+  const tabContent = document.querySelectorAll('.tabs .tab-item');
+
+  tabInputs.forEach((input) => {
+    input.addEventListener('change', function () {
+      tabContent.forEach((content) => {
+        content.style.display = 'none';
+      });
+
+      const selectedTab = document.querySelector(
+        `.tabs .tab-item#${this.getAttribute('id').replace('tab', 'content')}`
+      );
+
+      if (selectedTab) {
+        selectedTab.style.display = 'block';
+      }
+    });
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  var ctx = document.getElementById('graficoSumaVariables').getContext('2d');
+
+  var DT =  '{{ DT|safe }}';
+  var B =  '{{ B|safe }}';
+  var BD =  '{{ BD|safe }}';
+  var EDR = '{{ EDR|safe }}';
+  var labels = ['DT', 'B', 'BD', 'EDR']; 
+
+  var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: labels,
+          datasets: [
+              {
+                  label: 'Valores de Línea',
+                  data: [DT, B, BD, EDR],
+                  type: 'line', // Tipo de gráfico de línea
+                  borderColor: 'rgba(75, 192, 192, 1)', // Color de la línea
+                  borderWidth: 2, // Ancho de la línea
+                  fill: false, // Sin relleno
+                  datalabels: {
+                      display: false, // Ocultar etiquetas de línea por defecto
+                  },
+              },
+              {
+                  label: 'Valores de Barras',
+                  data: [DT, B, BD, EDR],
+                  backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)'],
+                  borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
+                  borderWidth: 1,
+                  datalabels: {
+                      display: true, // Mostrar etiquetas de barras
+                      align: 'center', // Alineación del texto
+                      anchor: 'center', // Anclaje del texto
+                      font: {
+                          family: 'Poppins', // Tipo de tipografía (Poppins)
+                      },
+                      formatter: function(value, context) {
+                          // Mostrar el valor en la etiqueta de cada barra
+                          return value;
+                      },
+                  },
+              },
+          ],
+      },
+      options: {
+          scales: {
+              y: {
+                  beginAtZero: true,
+              },
+          },
+          plugins: {
+              legend: {
+                  display: false, // Ocultar la leyenda del gráfico
+              },
+          },
+      },
+  });
+</script>
+<script>
+  var ctx = document.getElementById('graficoSumaVariables2').getContext('2d');
+
+  var DT =  '{{ DT|safe }}';
+  var B =  '{{ B|safe }}';
+  var BD =  '{{ BD|safe }}';  
+  var EDR = '{{ EDR|safe }}';
+  var IC = '{{ IC|safe }}';
+  var IPC = '{{ IPC|safe }}';
+  var APC = '{{ APC|safe }}';
+  var OC = '{{ OC|safe }}';
+  var GPMC = '{{ GPMC|safe }}';
+  var labels = ['DT', 'B', 'BD', 'EDR','IC','IPC','APC','OC','GPMC'];  // Etiquetas para cada valor
+
+  var myChart = new Chart(ctx, {
+      type: 'bar', // Tipo de gráfico de barras
+      data: {
+          labels: labels,
+          datasets: [
+              {
+                  label: 'Valores de Línea',
+                  data: [DT, B, BD, EDR,IC,IPC,APC,OC,GPMC],
+                  type: 'line', // Tipo de gráfico de línea
+                  borderColor: 'rgba(75, 192, 192, 1)', // Color de la línea
+                  borderWidth: 2, // Ancho de la línea
+                  fill: false, // Sin relleno
+                  datalabels: {
+                      display: false, // Ocultar etiquetas de línea por defecto
+                  },
+              },
+              {
+                  label: 'Valores de Barras',
+                  data: [DT, B, BD, EDR,IC,IPC,APC,OC,GPMC],
+                  backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)'],
+                  borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
+                  borderWidth: 1,
+                  datalabels: {
+                      display: true, // Mostrar etiquetas de barras
+                      align: 'center', // Alineación del texto
+                      anchor: 'center', // Anclaje del texto
+                      font: {
+                          family: 'Poppins', // Tipo de tipografía (Poppins)
+                      },
+                      formatter: function(value, context) {
+                          // Mostrar el valor en la etiqueta de cada barra
+                          return value;
+                      },
+                  },
+              },
+          ],
+      },
+      options: {
+          scales: {
+              y: {
+                  beginAtZero: true,
+              },
+          },
+          plugins: {
+              legend: {
+                  display: false, // Ocultar la leyenda del gráfico
+              },
+          },
+      },
+  });
+</script>
+{% endblock %}
+</html>

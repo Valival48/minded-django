@@ -1,0 +1,147 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Paciente</title>
+  <style>
+    body {
+      font-family: Poppins;
+      margin: 0;
+      padding: 0;
+      background-color: #98D0CD; /* Color de fondo central */
+    }
+   
+    #content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 150px;
+    }
+
+
+    .card {
+      position: relative;
+      width: 600px;
+      height: 100%;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 50px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 10px;
+      margin-left: 50px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      align-items: center;
+    }
+
+    .form-group label {
+      font-weight: bold;
+      margin-right: 10px;
+      display:initial;
+      width: 100px; /* Ancho del label */
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+
+    .button-group {
+      justify-content: left;      
+    }
+
+    .button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 10px;
+      font-weight: bold;
+      color: #fff;
+      width: 100px;
+      text-align: center;
+    }
+
+    .cancel-button {
+      margin-right: 10px;
+      width: 117px;
+      height: 46px;
+      flex-shrink: 0; 
+      border-radius: 25px;
+      background: #6C757D;
+      text-decoration: none;
+      color: #FFF;
+      text-align: center;
+      font-family: Poppins;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal; 
+      padding: 10px 20px;      
+    }
+
+    input{
+      border: 1px solid rgba(201, 201, 201, 0.50);
+      background: rgba(248, 248, 248, 0.50);
+      padding: 10px;
+      border-radius: 900px;
+      font-family: Poppins;
+    }
+
+    select{
+      border: 1px solid rgba(201, 201, 201, 0.50);
+      background: rgba(248, 248, 248, 0.50);
+      padding: 10px;
+      border-radius: 900px;
+      font-family: Poppins;
+    }
+    .save-button {
+      border-radius: 25px;
+      border-style: none;
+      background: #41C3BC;
+      width: 117px;
+      height: 46px;
+      flex-shrink: 0;
+      color: #FFF;
+      text-align: center;
+      font-family: Poppins;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;     
+    }
+  </style>
+</head>
+<body>
+  {% include "Header.html" %}
+  {% block content %}
+  <div id="content">
+    <div style="position: left; top: 80px; left: 470px; color: white;">
+      <h1>Editar Paciente - {{Paciente.nombre}}</h1>
+      <p>Edita los campos que requieran modificación</p>
+    </div>
+
+    
+    <div class="card">
+      <form method="POST">
+      <div class="form-group">
+      {% csrf_token %}
+      {{form.as_p}}
+    </div>    
+      <div class="button-group">
+        <a href="/paciente" class="cancel-button">Cancelar</a>
+        <button type="submit" class="save-button">Guardar</button>
+      </div>
+    </div>
+  </form>
+  </div>
+</body>
+{% endblock %}
+</html>

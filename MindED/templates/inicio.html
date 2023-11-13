@@ -1,0 +1,175 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+<head>
+    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindED | Menu</title>
+  <link rel="icon" href="{% static 'Imagenes/logo.ico' %}">
+  <style>
+    body {
+      font-family: Poppins;
+      margin: 0;
+      padding: 0;
+      background: rgba(65, 195, 188, 0.43);
+      display: flex;
+        justify-content: center;
+        align-items: center;
+     min-height: 100vh;
+    }
+    #content {
+      min-height: 693px; /* Altura mínima del contenido central */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+       z-index: 0;
+    }
+  
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 35px;
+    max-width: 800px;
+    padding: 20px;
+  }
+
+  .card {
+    background-color: white;
+    border-radius: 60px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 212.308px;
+    height: 222.804px;
+    position: relative;
+  }
+  .seccion{
+    display: flex;
+    width: 118.892px;
+    height: 30.049px;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 9px;
+    margin-left: 25px;
+    flex-shrink: 0;
+    color: #000;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  .descripcion{
+    display: flex;
+    width: 144px;
+    height: 28px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #000;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-top: 9px;
+    margin-left: 15px;
+  }
+  h2{
+    display: flex;
+    width: 234px;
+    height: 39px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #FFF;
+    text-align: left;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Poppins;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  .cerebro{
+    width: 400px;
+    height: 400px;
+    flex-shrink: 0; 
+    margin-right: 112px;
+    opacity: 0.6;
+  }
+  .button {
+    position: absolute;
+    bottom: -10px; 
+    right: -10px;
+    flex-shrink: 0;
+    width: 65px;
+    height: 65px;    
+    padding: 8px 16px;
+    background-color: #41C3BC;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    margin:0;
+}
+.flecha{
+  margin-top: 5px;
+  width: 37px;
+  height: 37px;
+  flex-shrink: 0;
+}
+.icono{
+  width: 40px;
+  height: 45px;
+  flex-shrink: 0;
+  margin-top: 15px;
+}
+  </style>
+</head>
+<body>  
+    {% include "Header.html" %}    
+    {% block content %}
+    <div>
+      <h2>Inicio</h2>
+      <img class="cerebro" src="{% static 'Imagenes/Cerebro2.svg' %}" alt="">
+    </div>
+    
+    <div class="grid-container">
+        <div class="card">
+            <img src="{% static 'Imagenes/test.png' %}" alt="">
+            <label class="seccion">Test de evaluación</label>
+            <label class="descripcion">Evaluación de TCA</label>
+            <a class="button" href="/test"><img class="flecha" src="{% static 'Imagenes/flecha.svg' %}" alt=""></a>
+        </div>
+        <div class="card">
+            <img class="icono" src="{% static 'Imagenes/historial.png' %}" alt="">
+            <label class="seccion">Historial de resultado</label>
+            <label class="descripcion">Resultados de test</label>
+            <a class="button" href="/historial"><img class="flecha" src="{% static 'Imagenes/flecha.svg' %}" alt=""></a>
+        </div>
+        <div class="card">
+            <img class="icono" src="{% static 'Imagenes/perfil.png' %}" alt="">
+            <label class="seccion">Perfil</label>
+            <label class="descripcion">Visualiza tus datos personales</label>
+            <button class="button"><img class="flecha" src="{% static 'Imagenes/flecha.svg' %}" alt="">
+        </div>
+        <div class="card">
+            <img class="icono" src="{% static 'Imagenes/lista.png' %}" alt="">
+            <label class="seccion">Lista de pacientes</label>
+            <label class="descripcion">Detalle de pacientes</label>
+            <a class="button" href="/paciente"><img class="flecha" src="{% static 'Imagenes/flecha.svg' %}" alt=""></a>
+        </div>
+      </div>
+</body>
+{% endblock %}
+</html>

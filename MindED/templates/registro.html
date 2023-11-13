@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindED | Regístrate</title>
+  <style>
+    body {
+      font-family: Poppins;
+      margin: 0;
+      padding: 0;
+    }
+    .header{
+      background-color: white;
+    }
+    label {
+      margin-right: 5px;
+      margin-left: 5px;
+    }
+    .flex-container input {
+      width: 100%;
+    }
+
+    .flex-container {
+      display: flex;
+      flex-direction: column;
+    }
+    #content {
+      min-height: 950px; /* Altura mínima del contenido central */
+      background: linear-gradient(to right, white, #41C3BC);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Media query para pantallas más pequeñas (responsive) */
+    
+
+    .card {
+      width: 600px;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 10px;
+      display: inline-block;
+    }
+
+    .oval-card {
+      border-radius: 10%;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      
+    }
+
+    .form-group .centered-option {
+      text-align: center;
+    }
+
+    .button {
+      background-color: #41C3BC;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .forgot-password {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+  </style>
+</head>
+{% extends 'Header.html' %}
+{% block content %}
+<body>
+
+  <div id="content">
+    <div class="card oval-card">
+        <center>
+      <h2>Regístrate</h2>
+      </center>
+      <form method="POST">
+        <div class="form-group"></div>
+        {% csrf_token %}
+            <div class="form-group">
+              <label for="usuario">Usuario:</label>
+             {{ form.username }}
+        </div>
+        <div class="form-group">
+          <label for="email">Correo electrónico:</label>
+          {{ form.email.label_tag }}
+          {{ form.email }}
+          <input type="email" id="email" name="email">
+       </div>
+        <div class="form-group">
+          <label for="password">Contraseña:</label>
+          {{ form.password1 }}
+          <label for="password2">Confirmación de cotraseña:</label>
+          {{ form.password2 }}
+      </div>
+   
+        <div class="form-group">
+          {{ form.nombres.label_tag }}
+          {{ form.nombres }}
+          <label for="nombres">Nombres:</label>
+          <input type="text" id="nombres" name="nombres">
+        </div>
+        <div class="form-group">
+            {{ form.apellidos.label_tag }}
+            {{ form.apellidos }}        
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" name="apellidos">
+          </div>           
+        <div class="form-group">
+            {{ form.dni.label_tag }}
+            {{ form.dni }}
+            <label for="dni">DNI:</label>
+            <input type="text" id="dni" name="dni">
+            <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+            {{ form.fecha_nacimiento.label_tag }}
+            {{ form.fecha_nacimiento }}
+            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento">
+          </div>
+            <div class="form-group centered-option">
+          {{error}}
+        <center>    
+          <button type="submit" class="button">Registrar</button>
+        </center>
+        </div>
+      </div>
+      </form>
+    </div>
+
+  </div>
+
+</body>
+{% endblock %}
+</html>

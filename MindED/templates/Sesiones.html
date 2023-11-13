@@ -1,0 +1,216 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindED | Pacientes</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <style>
+    body {
+      font-family: Poppins;
+      margin: 0;
+      padding: 0;
+      background-color: #98D0CD; /* Color de fondo central */
+      justify-content: center;
+      align-items:normal;
+      display: flex;
+      min-height: 80vh;
+    }
+    .container{
+      justify-content: space-between;
+      display: flex;
+    }
+
+    #content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between; /* Alinea el card a la derecha y el formulario a la izquierda */
+      padding: 20px;
+      width: 100%; /* Ancho completo */
+      flex: 1;
+      margin-left: 120px;
+      margin-top: 150px;
+    }
+
+    .contenido {
+      flex-basis: calc(70% - 20px); /* Establece el ancho del contenido izquierdo */
+      padding: 10px;
+      color: white;
+    }
+
+    .card {
+      flex-basis: calc(30% - 20px); /* Establece el ancho del card */
+      height: 100%;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 50px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-left: 600px;
+      margin-top: -340px;
+    }
+    
+    .tabla_titulo{
+      width: 404.612px;
+      color: var(--gray-900, #212529);
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+  
+    
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    .button {
+      background-color: #41C3BC;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: Poppins;
+      font-size: 14px;
+      width: 300px;
+      height: 40px;
+      flex-shrink: 0; 
+      margin-left: 430px;
+      text-decoration: none;   
+    }
+    .resultado{
+      padding: 10px 10px;
+      justify-content: center;
+      align-items: center;
+      flex: 1 0 0;
+      align-self: stretch;
+      background: var(--status-color-warning, #41C3BC);
+      border-radius: 18px;
+    }
+    .custom-date-input::-webkit-calendar-picker-indicator {
+      background-image: url("{% static 'Imagenes/calendar.svg' %}"); 
+      background-position: center left; 
+      background-repeat: no-repeat;      
+      transform: translateX(-410%); 
+      font-size: 28px;      
+    } 
+
+    
+    .custom-date-input {      
+      border-radius: 4px;
+      border: 1px solid var(--stroke-input, #CED4DA);
+      background: var(--gray-white, #FFF);
+      width: 175px;
+      height: 38px;
+      flex-shrink: 0;
+      color: var(--secondary-light-color, #949ba2);
+      font-family: Poppins;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 28px; /* 175% */
+      margin-left: 10px;
+      text-align: right;
+      padding-inline-start: 35px;
+    }
+    .cancel-button {
+      margin-right: 10px;
+      border: 1px solid var(--stroke-input,#6C757D);
+      width: 80px;
+      height: 50px;
+      flex-shrink: 0; 
+      border-radius: 25px;
+      background: #6C757D;
+      text-decoration: none;
+      color: #FFF;
+      text-align: center;
+      font-family: Poppins;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal; 
+      padding: 10px 20px;      
+    }
+
+    .date-fields-container {
+    display: flex;
+    gap: 10px; 
+}
+.mostrarGraficos{
+    padding: 10px 10px;
+      justify-content: center;
+      align-items: center;
+      flex: 1 0 0;
+      align-self: stretch;
+      background: var(--status-color-warning, #41C3BC);
+      border-radius: 18px;
+}
+
+  </style>
+</head>
+{% include "Header.html" %}
+{% block content %}
+<body>
+  <div id="container">
+    <div id="content">
+      <div class="contenido" style="color: white;">
+        <h1>{{ Paciente.nombre }}</h1>
+        <h3>Historial de resultados</h3>
+        <div class="date-fields-container">
+          <form method="get" action="">
+            {{ form.as_p }}
+            <button class="cancel-button">Filtrar</button>
+          </form>
+        </div>      
+      </div>
+      <div class="card">
+        <div>
+          <h5 class="tabla_titulo">Listado de pacientes</h5>
+        </div>
+        <div class="tabla">
+          <table class="table_text">
+            <thead class="tabla_headers">
+              <tr>
+                <th>#</th>
+                <th>Título de sesión</th>
+                <th>Fecha</th>
+                <th>Resultados</th>
+              </tr>
+            </thead>
+            <tbody>              
+              {% for Intervencion in Intervenciones %}
+              <tr>
+                <td class="tabla_info">{{ forloop.counter }}</td>
+                <td class="tabla_info">{{ Intervencion.titulo }}</td>
+                <td class="tabla_info">{{ Intervencion.fecha_int|date:"d/m/Y" }}</td>
+                <td class="tabla_info">
+                  <a title="Editar" href="{% url 'intervencion_detail' Paciente.N_Paciente Intervencion.N_sesion %}">
+                    <img class="mostrarGraficos" src="{% static 'Imagenes/eye.svg' %}" alt="">
+                  </a>
+                </td>
+              </tr>
+              {% endfor %}             
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Tus scripts y otros elementos -->
+</body>
+{% endblock %}
+</html>

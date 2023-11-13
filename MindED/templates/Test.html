@@ -1,0 +1,2955 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindED | Test de evaluación</title>
+<style>
+    body {
+      font-family: Poppins;
+      margin: 0;
+      padding: 0;
+      background-color: #98D0CD; /* Color de fondo central */
+    }
+
+    input{
+      border: 1px solid rgba(201, 201, 201, 0.50);
+      background: rgba(248, 248, 248, 0.50);
+      padding: 10px;
+      border-radius: 900px;
+      font-family: Poppins;
+    }
+
+    select{
+      border: 1px solid rgba(201, 201, 201, 0.50);
+      background: rgba(248, 248, 248, 0.50);
+      padding: 10px;
+      border-radius: 900px;
+      font-family: Poppins;
+    }
+
+
+    #content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 80px;
+    }
+
+   
+    .card {
+      position: relative;
+      width: 500px;
+      height: 471px; /* Altura de los cards */
+      padding: 50px ;
+      background-color: #fff;
+      border-radius: 60px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 10px;
+      margin-top: 10px;
+      
+    }
+    .carousel{
+        height: auto;
+    }
+
+    .oval-card {
+      border-radius: 30%;
+    }
+    .card2 {
+      position: relative;
+      width: 350px;
+      height: 100%;
+      padding: 45px;
+      background-color: #fff;
+      border-radius: 60px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 20px; 
+      margin-top: -88px;
+    }
+
+    .oval-card2 {
+      border-radius: 30%;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    label {
+    cursor: pointer;
+    display: inline-flex;
+}
+
+    .form-group input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      display:initial;
+    }
+    p{
+      color: #000;
+      text-align: justify;
+      margin-left: 10px;
+      font-family: Poppins;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+
+
+    .button {
+      border-radius: 25px;
+      border-style: none;
+      background: #41C3BC;
+      width: 100%;
+      height: 46px;
+      flex-shrink: 0;
+      color: #FFF;
+      text-align: center;
+      font-family: Poppins;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+
+    .form-group2 {
+      margin-bottom: 20px;
+    }
+
+    .form-group2 label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-group2 input {
+      width: 100%;
+      height: 90%;
+      padding: 50px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+ 
+    .form-group2 .centered-option {
+      text-align: left;
+    }
+    .test{
+      width: 43px;
+      height: 49px;      
+      float: left; 
+         }
+    h2{
+      display: flex;
+      width: 469px;
+      height: 61px;
+      flex-direction: column;
+      flex-shrink: 0;
+      color: #FFF;    
+      font-family: Poppins;
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      margin-left: 25px;
+    }
+    .cerebro{      
+      width: 87px;
+      height: 71px;
+      flex-shrink: 0;
+      opacity: 0.6; 
+      margin-left:550px;
+    }
+    .titulo{
+      position: relative;
+      display:flex; align-items: center;
+    }
+    .ninos{
+     position:center;
+      flex: 1;
+      display: flex;
+     align-items: flex-end;
+     justify-content: center;     
+     height: 180px;
+     margin-left: 100px;
+     margin-top: 10px;
+    }
+    .acept-button {
+      border-radius: 25px;
+      border-style: none;
+      background: #41C3BC;  
+      color: #FFF;    
+      margin-right: 10px;
+      width: 200px;
+      height: 50px;
+      flex-shrink: 0;       
+     text-decoration: none;      
+      text-align: center;
+      font-family: Poppins;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal; 
+      padding: 10px 20px;  
+       
+    }
+
+    .next-button {    
+    background-color: #41C3BC; /* Cambia el color de fondo a tu preferencia */
+    color: #fff; /* Cambia el color del texto a tu preferencia */
+    padding: 10px 20px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 25px;
+    margin-bottom: -1px;
+}
+
+    .next-button:hover {
+    background-color: #878787; /* Cambia el color de fondo al pasar el ratón por encima */
+    }
+    .custom-radio-button input[type="radio"] {
+    opacity: 0;
+    position: absolute;
+}
+
+/* Estilo para el contenedor de los botones de radio personalizados */
+.custom-radio-button {
+    display: inline-block;
+    width: 220px;
+    position: relative; /* Necesario para posicionar correctamente los elementos */
+    margin: 15px;
+    padding: 20px 20px;
+    background-color: #fff; /* Fondo blanco */
+    color: #000; /* Texto negro */
+    border: 5px solid transparent; /* Borde transparente */
+    border-radius: 10px;
+    cursor: pointer;  
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra */
+}
+
+
+.custom-radio-button label {
+    position: relative;
+    z-index: 1;
+}
+
+
+.custom-radio-button input[type="radio"]:checked + label {
+    font-weight: bold;    
+}
+.custom-radio-button label::before {
+    content: '';
+    display: block;
+    width: 40px; 
+    height: 40px; 
+    background-image: url('');
+    background-size: cover;
+    background-position: left;
+    background-repeat: no-repeat;
+    position: absolute;    
+    top: 50%;    
+    left: -40px;
+    transform: translateY(-50%);
+}
+
+.custom-radio-button input[type="radio"]:checked + label::before {
+    background-image: url("{% static 'Imagenes/comprobado.svg' %}"); /* Usa el valor del atributo data-imagen */
+}
+
+    .question-container{
+        background-color: #f9f9f9;             
+        padding: 120px;
+        }
+    .titulo-test{
+        display: flex;
+        width: 742px;
+        height: 32px;
+        flex-direction: column;
+        justify-content: center;
+        flex-shrink: 0; 
+        color: #000;
+        text-align: center;
+        font-family: Poppins;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin-left: 360px;
+    }
+    .sub-titulo-test{
+        display: flex;
+        width: 361px;
+        height: 32px;
+        flex-direction: column;
+        justify-content: center;
+        flex-shrink: 0;
+        color: #625959;
+        text-align: center;
+        font-family: Poppins;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin-top: -25px;
+        margin-left: 530px;
+        
+    }
+    .question{
+        color: #000;
+        font-family: Poppins;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 40px;
+        width:900px;
+        margin-left: 160px;
+        
+    }
+    textarea {
+  width: 100%; 
+  height: 100%; 
+  resize: none; 
+  border: none; 
+  background-color: transparent; 
+  overflow: auto; 
+  font-size: inherit;
+  border: 1px solid rgba(201, 201, 201, 0.50);
+  background: rgba(248, 248, 248, 0.50);
+  padding: 10px;
+  border-radius: 5px;
+   font-family: Poppins;
+   font-size: 13px;
+      
+}
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const nombrePacienteInput = document.getElementById('nombre_paciente');
+        const listaPacientes = document.getElementById('lista_pacientes');
+        const cerrarLista = document.getElementById('cerrar_lista'); // Agrega un elemento 'x' para cerrar la lista
+        const alertaNoEncontrado = document.getElementById('alerta_no_encontrado');
+        const enviarRespuestasButton = document.getElementById('enviar_respuestas'); // Botón "Enviar Respuestas"
+    
+        // Función para cerrar la lista
+        function cerrarListaPacientes() {
+            listaPacientes.innerHTML = '';
+        }
+    
+        nombrePacienteInput.addEventListener('input', function() {
+            const nombrePaciente = nombrePacienteInput.value.trim();
+    
+            fetch(`/buscar-pacientes/?nombre=${nombrePaciente}`)
+                .then(response => response.json())
+                .then(data => {
+                    listaPacientes.innerHTML = ''; // Limpiar la lista anterior
+                    if (data.length === 0) {
+                        alertaNoEncontrado.style.display = 'block'; // Mostrar la alerta si no se encuentra ningún paciente
+                        enviarRespuestasButton.disabled = true; // Deshabilitar el botón si no se encuentra paciente
+                    } else {
+                        alertaNoEncontrado.style.display = 'none'; // Ocultar la alerta si se encuentra algún paciente
+                        enviarRespuestasButton.disabled = false; // Habilitar el botón si se encuentra paciente
+                    }
+                    data.forEach(paciente => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = paciente;
+                        listItem.addEventListener('click', function() {
+                            nombrePacienteInput.value = paciente;
+                            cerrarListaPacientes(); // Cerrar la lista cuando se hace clic en un paciente
+                        });
+    
+                        listaPacientes.appendChild(listItem);
+                    });
+                })
+                .catch(error => console.error('Error: ', error));
+        });
+    
+        // Evento para cerrar la lista cuando se hace clic en otra parte de la página
+        document.addEventListener('click', function(event) {
+            const target = event.target;
+            if (target !== nombrePacienteInput && target !== listaPacientes && target !== cerrarLista) {
+                cerrarListaPacientes();
+            }
+        });
+    
+        // Evento para cerrar la lista cuando se hace clic en la 'x'
+        cerrarLista.addEventListener('click', cerrarListaPacientes);
+    });
+    </script>
+    
+</head>
+<body>
+  {% include "Header.html" %}
+  {% block content %}
+
+  <div id="content">
+  </div>
+
+ 
+  <div class="titulo">
+    <img class="cerebro" src="{% static 'Imagenes/cerebro2.svg' %}" alt="">
+    <h2>Test de Evaluación</h2>
+  </div>
+
+
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; text-align: center;">
+    <div class="card">
+        <div class="Intruccion" > </div>
+      <div style="text-align: center;">
+        <img class="test" src="{% static 'Imagenes/test.png' %}" alt="">
+        <p style="margin-bottom: 5px;"> Instrucciones:</p>
+        <p>1. Asigne un paciente a esta nueva sesión de evaluación (Agregue el paciente sin aún no ha sido registrado)</p>
+        <p>2. Puede asignar una breve descripción de la sesión antes de empezar.</p>
+        <p>3. Una vez termine de llenar los campos obligatorios, presione ‘Comenzar’.</p>
+        <p>4. La evaluación no tiene un tiempo límite.</p>  
+      </div>
+    </div>
+<div>
+<form method="post" action="{% url 'encuesta_view' %}">
+    <div class="card2">
+      <div style="text-align: left;">
+        <div class="form-group">
+            <label for="Paciente">Pacientes:</label>
+            <input type="search" id="nombre_paciente" name="nombre_paciente" placeholder="Seleccione el paciente" required>
+            <ul id="lista_pacientes"></ul>
+            <div id="alerta_no_encontrado" style="display: none; color: red;font-size: 14px;margin-top: -10px;">
+                Paciente no encontrado
+            </div>
+            
+        </div>
+        <div class="form-group">
+          <label for="titulo-sesion">Título de la Sesión:</label>
+          <input type="text" id="titulo" name="titulo" placeholder="Ingrese el título" required>
+        </div>        
+        <div class="form-group">
+          <label for="descripcion">Descripción:</label>
+          <textarea id="descripcion" name="descripcion" name="texto_largo" rows="4" cols="50" placeholder="Ingrese la descripción" required></textarea>
+          <!--<input type="text" id="descripcion" name="descripcion" placeholder="Ingrese la descripción" required>-->
+        </div>
+
+        <div style="text-align: center;">
+          <a  id="desplazar" class="acept-button">Comenzar</a>
+    </div>
+      </div>
+    </div>
+  </div>
+<img class="ninos" src="{% static 'Imagenes/jovenes.svg' %}" alt="">
+    {% csrf_token %}
+  <div class="question-container">
+    <div>
+        <p class="titulo-test" >Test de evaluación de trastornos alimenticios</p>
+    </div>
+  <div>
+    <p class="sub-titulo-test" >Selecciona la opción más adecuada</p>
+    <img class="borde" src="{% static 'Imagenes/borde.svg' %}" alt="">
+  </div>
+
+  <div id="carousel">
+    <div class="question-slide">
+    <p class="question">Pregunta 1: Como dulces e hidratos de carbono (pastas, pan, etc.) sin hacerme problemas</p>
+    <div class="custom-radio-button">
+        <input type="radio" name="pregunta1" id="opcion1" value="0">
+        <label for="opcion1">Nunca</label>
+    </div>
+    <div class="custom-radio-button">
+        <input type="radio" name="pregunta1" id="opcion2" value="1">
+        <label for="opcion2">Raramente</label>
+    </div>
+    <div class="custom-radio-button">
+        <input type="radio" name="pregunta1" id="opcion3" value="2">
+        <label for="opcion3">Algunas veces</label>
+    </div>
+    <div class="custom-radio-button">
+      <input type="radio" name="pregunta1" id="opcion4" value="3">
+      <label for="opcion4">A menudo</label>
+  </div>
+    <div class="custom-radio-button">
+    <input type="radio" name="pregunta1" id="opcion5" value="4">
+    <label for="opcion5">Muy a menudo</label>
+  </div>
+  <div class="custom-radio-button">
+    <input type="radio" name="pregunta1" id="opcion6" value="5">
+    <label for="opcion6">Siempre</label>
+  </div>
+
+  <p class="question">Pregunta 2: Pienso que mi abdomen (panza) es demasiado grande</p>    
+    <div class="custom-radio-button">
+        <input type="radio" name="pregunta2" id="opcion7" value="0">
+        <label for="opcion7">Nunca</label>
+    </div>
+    <div class="custom-radio-button">
+        <input type="radio" name="pregunta2" id="opcion8" value="1">
+        <label for="opcion8">Raramente</label>
+    </div>
+    <div class="custom-radio-button">
+        <input type="radio" name="pregunta2" id="opcion9" value="2">
+        <label for="opcion9">Algunas veces</label>
+    </div>
+    <div class="custom-radio-button">
+      <input type="radio" name="pregunta2" id="opcion10" value="3">
+      <label for="opcion10">A menudo</label>
+  </div>
+    <div class="custom-radio-button">
+    <input type="radio" name="pregunta2" id="opcion11" value="4">
+    <label for="opcion11">Muy a menudo</label>
+  </div>
+  <div class="custom-radio-button">
+    <input type="radio" name="pregunta2" id="opcion12" value="5">
+    <label for="opcion12">Siempre</label>
+  </div>
+<br>
+<p class="question">Pregunta 3:Me gustaría sentirme segura/o como cuando era chica/o</p>    
+    <div class="custom-radio-button">
+        <input type="radio" name="pregunta3" id="opcion13" value="0">
+        <label for="opcion13">Nunca</label>
+    </div>
+    <div class="custom-radio-button">
+        <input type="radio" name="pregunta3" id="opcion14" value="1">
+        <label for="opcion14">Raramente</label>
+    </div>
+    <div class="custom-radio-button">
+        <input type="radio" name="pregunta3" id="opcion15" value="2">
+        <label for="opcion15">Algunas veces</label>
+    </div>
+    <div class="custom-radio-button">
+      <input type="radio" name="pregunta3" id="opcion16" value="3">
+      <label for="opcion16">A menudo</label>
+  </div>
+    <div class="custom-radio-button">
+    <input type="radio" name="pregunta3" id="opcion17" value="4">
+    <label for="opcion17">Muy a menudo</label>
+  </div>
+  <div class="custom-radio-button">
+    <input type="radio" name="pregunta3" id="opcion18" value="5">
+    <label for="opcion18">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 4: Cuando estoy nerviosa/o me pongo a comer</p>    
+    <div class="custom-radio-button">
+        <input type="radio" name="pregunta4" id="opcion19" value="0">
+        <label for="opcion19">Nunca</label>
+    </div>
+    <div class="custom-radio-button">
+        <input type="radio" name="pregunta4" id="opcion20" value="1">
+        <label for="opcion20">Raramente</label>
+    </div>
+    <div class="custom-radio-button">
+        <input type="radio" name="pregunta4" id="opcion21" value="2">
+        <label for="opcion21">Algunas veces</label>
+    </div>
+    <div class="custom-radio-button">
+      <input type="radio" name="pregunta4" id="opcion22" value="3">
+      <label for="opcion22">A menudo</label>
+  </div>
+    <div class="custom-radio-button">
+    <input type="radio" name="pregunta4" id="opcion23" value="4">
+    <label for="opcion23">Muy a menudo</label>
+  </div>
+  <div class="custom-radio-button">
+    <input type="radio" name="pregunta4" id="opcion24" value="5">
+    <label for="opcion24">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 5: Me lleno excesivamente de comida</p>    
+    <div class="custom-radio-button">
+        <input type="radio" name="pregunta5" id="opcion25" value="0">
+        <label for="opcion25">Nunca</label>
+    </div>
+    <div class="custom-radio-button">
+        <input type="radio" name="pregunta5" id="opcion26" value="1">
+        <label for="opcion26">Raramente</label>
+    </div>
+    <div class="custom-radio-button">
+        <input type="radio" name="pregunta5" id="opcion27" value="2">
+        <label for="opcion27">Algunas veces</label>
+    </div>
+    <div class="custom-radio-button">
+      <input type="radio" name="pregunta5" id="opcion28" value="3">
+      <label for="opcion28">A menudo</label>
+  </div>
+    <div class="custom-radio-button">
+    <input type="radio" name="pregunta5" id="opcion29" value="4">
+    <label for="opcion29">Muy a menudo</label>
+  </div>
+  <div class="custom-radio-button">
+    <input type="radio" name="pregunta5" id="opcion30" value="5">
+    <label for="opcion30">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 6: Me gustaría ser más joven</p>    
+    <div class="custom-radio-button">
+        <input type="radio" name="pregunta6" id="opcion31" value="0">
+        <label for="opcion31">Nunca</label>
+    </div>
+    <div class="custom-radio-button">
+        <input type="radio" name="pregunta6" id="opcion32" value="1">
+        <label for="opcion32">Raramente</label>
+    </div>
+    <div class="custom-radio-button">
+        <input type="radio" name="pregunta6" id="opcion33" value="2">
+        <label for="opcion33">Algunas veces</label>
+    </div>
+    <div class="custom-radio-button">
+      <input type="radio" name="pregunta6" id="opcion34" value="3">
+      <label for="opcion34">A menudo</label>
+  </div>
+    <div class="custom-radio-button">
+    <input type="radio" name="pregunta6" id="opcion35" value="4">
+    <label for="opcion35">Muy a menudo</label>
+  </div>
+  <div class="custom-radio-button">
+    <input type="radio" name="pregunta6" id="opcion36" value="5">
+    <label for="opcion36">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 7: Pienso acerca de hacer dieta </p>    
+    <div class="custom-radio-button">
+        <input type="radio" name="pregunta7" id="opcion37" value="0">
+        <label for="opcion37">Nunca</label>
+    </div>
+    <div class="custom-radio-button">
+        <input type="radio" name="pregunta7" id="opcion38" value="1">
+        <label for="opcion38">Raramente</label>
+    </div>
+    <div class="custom-radio-button">
+        <input type="radio" name="pregunta7" id="opcion39" value="2">
+        <label for="opcion39">Algunas veces</label>
+    </div>
+    <div class="custom-radio-button">
+      <input type="radio" name="pregunta7" id="opcion40" value="3">
+      <label for="opcion40">A menudo</label>
+  </div>
+    <div class="custom-radio-button">
+    <input type="radio" name="pregunta7" id="opcion41" value="4">
+    <label for="opcion41">Muy a menudo</label>
+  </div>
+  <div class="custom-radio-button">
+    <input type="radio" name="pregunta7" id="opcion42" value="5">
+    <label for="opcion42">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 8: Me asusto cuando siento emociones muy fuertes</p>    
+    <div class="custom-radio-button">
+        <input type="radio" name="pregunta8" id="opcion43" value="0">
+        <label for="opcion43">Nunca</label>
+    </div>
+    <div class="custom-radio-button">
+        <input type="radio" name="pregunta8" id="opcion44" value="1">
+        <label for="opcion44">Raramente</label>
+    </div>
+    <div class="custom-radio-button">
+        <input type="radio" name="pregunta8" id="opcion45" value="2">
+        <label for="opcion45">Algunas veces</label>
+    </div>
+    <div class="custom-radio-button">
+      <input type="radio" name="pregunta8" id="opcion46" value="3">
+      <label for="opcion46">A menudo</label>
+  </div>
+    <div class="custom-radio-button">
+    <input type="radio" name="pregunta8" id="opcion47" value="4">
+    <label for="opcion47">Muy a menudo</label>
+  </div>
+  <div class="custom-radio-button">
+    <input type="radio" name="pregunta8" id="opcion48" value="5">
+    <label for="opcion48">Siempre</label>
+  </div> 
+  <br>
+  <br>
+  <br>
+  <a href="#" class="next-button" onclick="nextSlide()">Siguiente</a>
+</div>
+
+<!--Bulimia (B)-->
+<div class="question-slide">
+<p class="question">Pregunta 9: Creo que mis muslos son demasiado grandes</p>    
+    <div class="custom-radio-button">
+        <input type="radio" name="pregunta9" id="opcion49" value="0">
+        <label for="opcion49">Nunca</label>
+    </div>
+    <div class="custom-radio-button">
+        <input type="radio" name="pregunta9" id="opcion50" value="1">
+        <label for="opcion50">Raramente</label>
+    </div>
+    <div class="custom-radio-button">
+        <input type="radio" name="pregunta9" id="opcion51" value="2">
+        <label for="opcion51">Algunas veces</label>
+    </div>
+    <div class="custom-radio-button">
+      <input type="radio" name="pregunta9" id="opcion52" value="3">
+      <label for="opcion52">A menudo</label>
+  </div>
+    <div class="custom-radio-button">
+    <input type="radio" name="pregunta9" id="opcion53" value="4">
+    <label for="opcion53">Muy a menudo</label>
+  </div>
+  <div class="custom-radio-button">
+    <input type="radio" name="pregunta9" id="opcion54" value="5">
+    <label for="opcion54">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 10: Siento que no sirvo para nada</p>    
+    <div class="custom-radio-button">
+        <input type="radio" name="pregunta10" id="opcion55" value="0">
+        <label for="opcion55">Nunca</label>
+    </div>
+    <div class="custom-radio-button">
+        <input type="radio" name="pregunta10" id="opcion56" value="1">
+        <label for="opcion56">Raramente</label>
+    </div>
+    <div class="custom-radio-button">
+        <input type="radio" name="pregunta10" id="opcion57" value="2">
+        <label for="opcion57">Algunas veces</label>
+    </div>
+    <div class="custom-radio-button">
+      <input type="radio" name="pregunta10" id="opcion58" value="3">
+      <label for="opcion58">A menudo</label>
+  </div>
+    <div class="custom-radio-button">
+    <input type="radio" name="pregunta10" id="opcion59" value="4">
+    <label for="opcion59">Muy a menudo</label>
+  </div>
+  <div class="custom-radio-button">
+    <input type="radio" name="pregunta10" id="opcion60" value="5">
+    <label for="opcion60">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 11: Me siento muy culpable cuando como demasiado</p>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta11" id="opcion61" value="0">
+    <label for="opcion61">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta11" id="opcion62" value="1">
+    <label for="opcion62">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta11" id="opcion63" value="2">
+    <label for="opcion63">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta11" id="opcion64" value="3">
+  <label for="opcion64">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta11" id="opcion65" value="4">
+<label for="opcion65">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta11" id="opcion66" value="5">
+<label for="opcion66">Siempre</label>
+</div>
+<br>
+
+<p class="question">Pregunta 12: Creo que mi abdomen (panza) es de tamaño normal</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta12" id="opcion67" value="0">
+    <label for="opcion67">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta12" id="opcion68" value="1">
+    <label for="opcion68">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta12" id="opcion69" value="2">
+    <label for="opcion69">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta12" id="opcion70" value="3">
+  <label for="opcion70">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta12" id="opcion71" value="4">
+<label for="opcion71">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta12" id="opcion72" value="5">
+<label for="opcion72">Siempre</label>
+</div>
+<br>
+
+<p class="question">Pregunta 13: Para mi familia lo más importante es ser primero en todo</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta13" id="opcion73" value="0">
+    <label for="opcion73">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta13" id="opcion74" value="1">
+    <label for="opcion74">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta13" id="opcion75" value="2">
+    <label for="opcion75">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta13" id="opcion76" value="3">
+  <label for="opcion76">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta13" id="opcion77" value="4">
+<label for="opcion77">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta13" id="opcion78" value="5">
+<label for="opcion78">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 14: La infancia es la etapa más feliz de la vida</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta14" id="opcion79" value="0">
+    <label for="opcion79">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta14" id="opcion80" value="1">
+    <label for="opcion80">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta14" id="opcion81" value="2">
+    <label for="opcion81">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta14" id="opcion82" value="3">
+  <label for="opcion82">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta14" id="opcion83" value="4">
+<label for="opcion83">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta14" id="opcion84" value="5">
+<label for="opcion84">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 15: Soy muy abierta/o con mis sentimientos</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta15" id="opcion85" value="0">
+    <label for="opcion85">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta15" id="opcion86" value="1">
+    <label for="opcion86">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta15" id="opcion87" value="2">
+    <label for="opcion87">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta15" id="opcion88" value="3">
+  <label for="opcion88">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta15" id="opcion89" value="4">
+<label for="opcion89">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta15" id="opcion90" value="5">
+<label for="opcion90">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 16: Me aterroriza subir de peso</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta16" id="opcion91" value="0">
+    <label for="opcion91">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta16" id="opcion92" value="1">
+    <label for="opcion92">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta16" id="opcion93" value="2">
+    <label for="opcion93">Algunas veces</label>
+</div>
+
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta16" id="opcion94" value="3">
+  <label for="opcion94">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta16" id="opcion95" value="4">
+<label for="opcion95">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta16" id="opcion96" value="5">
+<label for="opcion96">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 17: Confío en los demás</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta17" id="opcion97" value="0">
+    <label for="opcion97">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta17" id="opcion98" value="1">
+    <label for="opcion98">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta17" id="opcion99" value="2">
+    <label for="opcion99">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta17" id="opcion100" value="3">
+  <label for="opcion100">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta17" id="opcion101" value="4">
+<label for="opcion101">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta17" id="opcion102" value="5">
+<label for="opcion102">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 18: Me siento muy sola/o</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta18" id="opcion103" value="0">
+    <label for="opcion103">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta18" id="opcion104" value="1">
+    <label for="opcion104">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta18" id="opcion105" value="2">
+    <label for="opcion105">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta18" id="opcion106" value="3">
+  <label for="opcion106">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta18" id="opcion107" value="4">
+<label for="opcion107">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta18" id="opcion108" value="5">
+<label for="opcion108">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 19: Estoy conforme con el cuerpo que tengo</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta19" id="opcion109" value="0">
+    <label for="opcion109">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta19" id="opcion110" value="1">
+    <label for="opcion110">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta19" id="opcion111" value="2">
+    <label for="opcion111">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta19" id="opcion112" value="3">
+  <label for="opcion112">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta19" id="opcion113" value="4">
+<label for="opcion113">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta19" id="opcion114" value="5">
+<label for="opcion114">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 20: En general puedo manejar lo que pasa en mi vida</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta20" id="opcion115" value="0">
+    <label for="opcion115">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta20" id="opcion116" value="1">
+    <label for="opcion116">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta20" id="opcion117" value="2">
+    <label for="opcion117">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta20" id="opcion118" value="3">
+  <label for="opcion118">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta20" id="opcion119" value="4">
+<label for="opcion119">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta20" id="opcion120" value="5">
+<label for="opcion120">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 21: Me resulta difícil entender mis sentimientos</p>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta21" id="opcion121" value="0">
+    <label for="opcion121">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta21" id="opcion122" value="1">
+    <label for="opcion122">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta21" id="opcion123" value="2">
+    <label for="opcion123">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta21" id="opcion124" value="3">
+  <label for="opcion124">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta21" id="opcion125" value="4">
+<label for="opcion125">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta21" id="opcion126" value="5">
+<label for="opcion126">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 22: Me gusta más ser un/a adulto/a que un/a niño/a</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta22" id="opcion127" value="0">
+    <label for="opcion127">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta22" id="opcion128" value="1">
+    <label for="opcion128">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta22" id="opcion129" value="2">
+    <label for="opcion129">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta22" id="opcion130" value="3">
+  <label for="opcion130">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta22" id="opcion131" value="4">
+<label for="opcion131">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta22" id="opcion132" value="5">
+<label for="opcion132">Siempre</label>
+</div>
+<br>
+
+<p class="question">Pregunta 23: Me resulta fácil comunicarme con los demás</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta23" id="opcion133" value="0">
+    <label for="opcion133">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta23" id="opcion134" value="1">
+    <label for="opcion134">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta23" id="opcion135" value="2">
+    <label for="opcion135">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta23" id="opcion136" value="3">
+  <label for="opcion136">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta23" id="opcion137" value="4">
+<label for="opcion137">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta23" id="opcion138" value="5">
+<label for="opcion138">Siempre</label>
+</div>
+<br>
+<br>
+<br>
+<a href="#" class="next-button" onclick="nextSlide()">Siguiente</a>
+</div>
+<!--Insatisfacción corporal (BD)-->
+<div class="question-slide">
+<p class="question">Pregunta 24: Desearía ser otra persona</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta24" id="opcion139" value="0">
+    <label for="opcion139">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta24" id="opcion140" value="1">
+    <label for="opcion140">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta24" id="opcion141" value="2">
+    <label for="opcion141">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta24" id="opcion142" value="3">
+  <label for="opcion142">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta24" id="opcion143" value="4">
+<label for="opcion143">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta24" id="opcion144" value="5">
+<label for="opcion144">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 25: Exagero la importancia del peso de mi cuerpo</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta25" id="opcion145" value="0">
+    <label for="opcion145">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta25" id="opcion146" value="1">
+    <label for="opcion146">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta25" id="opcion147" value="2">
+    <label for="opcion147">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta25" id="opcion148" value="3">
+  <label for="opcion148">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta25" id="opcion149" value="4">
+<label for="opcion149">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta25" id="opcion150" value="5">
+<label for="opcion150">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 26: Puedo darme cuenta claramente de lo que siento (miedo, alegría, rabia, etc.)</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta26" id="opcion151" value="0">
+    <label for="opcion151">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta26" id="opcion152" value="1">
+    <label for="opcion152">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta26" id="opcion153" value="2">
+    <label for="opcion153">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta26" id="opcion154" value="3">
+  <label for="opcion154">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta26" id="opcion155" value="4">
+<label for="opcion155">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta26" id="opcion156" value="5">
+<label for="opcion156">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 27: Siento que no hago nada bien</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta27" id="opcion157" value="0">
+    <label for="opcion157">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta27" id="opcion158" value="1">
+    <label for="opcion158">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta27" id="opcion159" value="2">
+    <label for="opcion159">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta27" id="opcion160" value="3">
+  <label for="opcion160">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta27" id="opcion161" value="4">
+<label for="opcion161">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta27" id="opcion162" value="5">
+<label for="opcion162">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 28: He llegado a comer y comer sin poder parar</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta28" id="opcion163" value="0">
+    <label for="opcion163">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta28" id="opcion164" value="1">
+    <label for="opcion164">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta28" id="opcion165" value="2">
+    <label for="opcion165">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta28" id="opcion166" value="3">
+  <label for="opcion166">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta28" id="opcion167" value="4">
+<label for="opcion167">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta28" id="opcion168" value="5">
+<label for="opcion168">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 29: De niña/o me esforcé por no desilusionar a mis padres y maestros</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta29" id="opcion169" value="0">
+    <label for="opcion169">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta29" id="opcion170" value="1">
+    <label for="opcion170">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta29" id="opcion171" value="2">
+    <label for="opcion171">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta29" id="opcion172" value="3">
+  <label for="opcion172">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta29" id="opcion173" value="4">
+<label for="opcion173">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta29" id="opcion174" value="5">
+<label for="opcion174">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 30: Tengo buenos vínculos afectivos</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta30" id="opcion175" value="0">
+    <label for="opcion175">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta30" id="opcion176" value="1">
+    <label for="opcion176">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta30" id="opcion177" value="2">
+    <label for="opcion177">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta30" id="opcion178" value="3">
+  <label for="opcion178">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta30" id="opcion179" value="4">
+<label for="opcion179">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta30" id="opcion180" value="5">
+<label for="opcion180">Siempre</label>
+</div>
+
+
+<br>    
+<p class="question">Pregunta 31: Me gusta la forma de mis nalgas (cola)</p>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta31" id="opcion181" value="0">
+    <label for="opcion181">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta31" id="opcion182" value="1">
+    <label for="opcion182">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta31" id="opcion183" value="2">
+    <label for="opcion183">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta31" id="opcion184" value="3">
+  <label for="opcion184">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta31" id="opcion185" value="4">
+<label for="opcion185">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta31" id="opcion186" value="5">
+<label for="opcion186">Siempre</label>
+</div>
+<br>
+
+<p class="question">Pregunta 32: Quiero estar más delgada/o</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta32" id="opcion187" value="0">
+    <label for="opcion187">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta32" id="opcion188" value="1">
+    <label for="opcion188">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta32" id="opcion189" value="2">
+    <label for="opcion189">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta32" id="opcion190" value="3">
+  <label for="opcion190">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta32" id="opcion191" value="4">
+<label for="opcion191">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta32" id="opcion192" value="5">
+<label for="opcion192">Siempre</label>
+</div>
+<br>
+
+<p class="question">Pregunta 33: No sé que pasa dentro mío</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta33" id="opcion193" value="0">
+    <label for="opcion193">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta33" id="opcion194" value="1">
+    <label for="opcion194">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta33" id="opcion195" value="2">
+    <label for="opcion195">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta33" id="opcion196" value="3">
+  <label for="opcion196">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta33" id="opcion197" value="4">
+<label for="opcion197">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta33" id="opcion198" value="5">
+<label for="opcion198">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 34: Me resulta difícil expresar mis sentimientos a los demás</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta34" id="opcion199" value="0">
+    <label for="opcion199">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta34" id="opcion200" value="1">
+    <label for="opcion200">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta34" id="opcion201" value="2">
+    <label for="opcion201">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta34" id="opcion202" value="3">
+  <label for="opcion202">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta34" id="opcion203" value="4">
+<label for="opcion203">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta34" id="opcion204" value="5">
+<label for="opcion204">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 35: Es muy difícil ser adulta/o</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta35" id="opcion205" value="0">
+    <label for="opcion205">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta35" id="opcion206" value="1">
+    <label for="opcion206">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta35" id="opcion207" value="2">
+    <label for="opcion207">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta35" id="opcion208" value="3">
+  <label for="opcion208">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta35" id="opcion209" value="4">
+<label for="opcion209">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta35" id="opcion210" value="5">
+<label for="opcion210">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 36: Detesto cuando no soy la/él mejor en algo</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta36" id="opcion211" value="0">
+    <label for="opcion211">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta36" id="opcion212" value="1">
+    <label for="opcion212">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta36" id="opcion213" value="2">
+    <label for="opcion213">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta36" id="opcion214" value="3">
+  <label for="opcion214">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta36" id="opcion215" value="4">
+<label for="opcion215">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta36" id="opcion216" value="5">
+<label for="opcion216">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 37: Me siento segura/o de mi misma/o</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta37" id="opcion217" value="0">
+    <label for="opcion217">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta37" id="opcion218" value="1">
+    <label for="opcion218">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta37" id="opcion219" value="2">
+    <label for="opcion219">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta37" id="opcion220" value="3">
+  <label for="opcion220">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta37" id="opcion221" value="4">
+<label for="opcion221">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta37" id="opcion222" value="5">
+<label for="opcion222">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 38: Pienso mucho en comer</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta38" id="opcion223" value="0">
+    <label for="opcion223">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta38" id="opcion224" value="1">
+    <label for="opcion224">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta38" id="opcion225" value="2">
+    <label for="opcion225">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta38" id="opcion226" value="3">
+  <label for="opcion226">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta38" id="opcion227" value="4">
+<label for="opcion227">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta38" id="opcion228" value="5">
+<label for="opcion228">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 39: Me alegra no ser más una chica/o</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta39" id="opcion229" value="0">
+    <label for="opcion229">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta39" id="opcion230" value="1">
+    <label for="opcion230">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta39" id="opcion231" value="2">
+    <label for="opcion231">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta39" id="opcion232" value="3">
+  <label for="opcion232">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta39" id="opcion233" value="4">
+<label for="opcion233">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta39" id="opcion234" value="5">
+<label for="opcion234">Siempre</label>
+ </div>
+ <br>
+  <br>
+  <br>
+ <a href="#" class="next-button" onclick="nextSlide()">Siguiente</a>
+</div>
+
+<!--Baja autoestima (LSE)-->
+<div class="question-slide">
+<p class="question">Pregunta 40: Me confundo cuando intento saber si estoy hambriento/a o no</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta40" id="opcion235" value="0">
+    <label for="opcion235">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta40" id="opcion236" value="1">
+    <label for="opcion236">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta40" id="opcion237" value="2">
+    <label for="opcion237">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta40" id="opcion238" value="3">
+  <label for="opcion238">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta40" id="opcion239" value="4">
+<label for="opcion239">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta40" id="opcion240" value="5">
+<label for="opcion240">Siempre</label>
+</div>
+<br> 
+<p class="question">Pregunta 41: Tengo una baja opinión de mi misma/o</p>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta41" id="opcion241" value="0">
+    <label for="opcion241">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta41" id="opcion242" value="1">
+    <label for="opcion242">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta41" id="opcion243" value="2">
+    <label for="opcion243">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta41" id="opcion244" value="3">
+  <label for="opcion244">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta41" id="opcion245" value="4">
+<label for="opcion245">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta41" id="opcion246" value="5">
+<label for="opcion246">Siempre</label>
+</div>
+<br>
+
+<p class="question">Pregunta 42: Creo que puedo lograr las metas que me propongo</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta42" id="opcion247" value="0">
+    <label for="opcion247">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta42" id="opcion248" value="1">
+    <label for="opcion248">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta42" id="opcion249" value="2">
+    <label for="opcion249">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta42" id="opcion250" value="3">
+  <label for="opcion250">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta42" id="opcion251" value="4">
+<label for="opcion251">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta42" id="opcion252" value="5">
+<label for="opcion252">Siempre</label>
+</div>
+<br>
+
+<p class="question">Pregunta 43: Mis padres esperan de mí un alto nivel de rendimiento</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta43" id="opcion253" value="0">
+    <label for="opcion253">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta43" id="opcion254" value="1">
+    <label for="opcion254">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta43" id="opcion255" value="2">
+    <label for="opcion255">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta43" id="opcion256" value="3">
+  <label for="opcion256">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta43" id="opcion257" value="4">
+<label for="opcion257">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta43" id="opcion258" value="5">
+<label for="opcion258">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 44: Me preocupa no poder controlar mis sentimientos</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta44" id="opcion259" value="0">
+    <label for="opcion259">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta44" id="opcion260" value="1">
+    <label for="opcion260">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta44" id="opcion261" value="2">
+    <label for="opcion261">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta44" id="opcion262" value="3">
+  <label for="opcion262">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta44" id="opcion263" value="4">
+<label for="opcion263">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta44" id="opcion264" value="5">
+<label for="opcion264">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 45: Creo que mis caderas son demasiado grandes</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta45" id="opcion265" value="0">
+    <label for="opcion265">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta45" id="opcion266" value="1">
+    <label for="opcion266">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta45" id="opcion267" value="2">
+    <label for="opcion267">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta45" id="opcion268" value="3">
+  <label for="opcion268">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta45" id="opcion269" value="4">
+<label for="opcion269">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta45" id="opcion270" value="5">
+<label for="opcion270">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 46: Como moderadamente cuando estoy con otras personas y excesivamente si estoy solo/a</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta46" id="opcion271" value="0">
+    <label for="opcion271">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta46" id="opcion272" value="1">
+    <label for="opcion272">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta46" id="opcion273" value="2">
+    <label for="opcion273">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta46" id="opcion274" value="3">
+  <label for="opcion274">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta46" id="opcion275" value="4">
+<label for="opcion275">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta46" id="opcion276" value="5">
+<label for="opcion276">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 47: Me siento llena/o después de una comida pequeña</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta47" id="opcion277" value="0">
+    <label for="opcion277">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta47" id="opcion278" value="1">
+    <label for="opcion278">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta47" id="opcion279" value="2">
+    <label for="opcion279">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta47" id="opcion280" value="3">
+  <label for="opcion280">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta47" id="opcion281" value="4">
+<label for="opcion281">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta47" id="opcion282" value="5">
+<label for="opcion282">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 48: Creo que la niñez es la época más feliz de la vida</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta48" id="opcion283" value="0">
+    <label for="opcion283">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta48" id="opcion284" value="1">
+    <label for="opcion284">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta48" id="opcion285" value="2">
+    <label for="opcion285">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta48" id="opcion286" value="3">
+  <label for="opcion286">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta48" id="opcion287" value="4">
+<label for="opcion287">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta48" id="opcion288" value="5">
+<label for="opcion288">Siempre</label>
+</div>
+<div>
+  <br>
+  <br>
+<a href="#" class="next-button" onclick="nextSlide()">Siguiente</a>
+</div>
+</div>
+
+<!--separacion-->
+<div class="question-slide">
+<p class="question">Pregunta 49: Si aumento de peso, me preocupa seguir aumentando</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta49" id="opcion289" value="0">
+    <label for="opcion289">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta49" id="opcion290" value="1">
+    <label for="opcion290">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta49" id="opcion291" value="2">
+    <label for="opcion291">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta49" id="opcion292" value="3">
+  <label for="opcion292">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta49" id="opcion293" value="4">
+<label for="opcion293">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta49" id="opcion294" value="5">
+<label for="opcion294">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 50: Siento que soy una persona valiosa</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta50" id="opcion295" value="0">
+    <label for="opcion295">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta50" id="opcion296" value="1">
+    <label for="opcion296">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta50" id="opcion297" value="2">
+    <label for="opcion297">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta50" id="opcion298" value="3">
+  <label for="opcion298">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta50" id="opcion299" value="4">
+<label for="opcion299">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta50" id="opcion300" value="5">
+<label for="opcion300">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 51: Cuando me siento nerviosa/o, no sé si estoy triste, enojada/o o atemorizada/o</p>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta51" id="opcion301" value="0">
+    <label for="opcion301">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta51" id="opcion302" value="1">
+    <label for="opcion302">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta51" id="opcion303" value="2">
+    <label for="opcion303">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta51" id="opcion304" value="3">
+  <label for="opcion304">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta51" id="opcion305" value="4">
+<label for="opcion305">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta51" id="opcion306" value="5">
+<label for="opcion306">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 52: Creo que tengo que hacer todo a la perfección o no hacer nada</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta52" id="opcion307" value="0">
+    <label for="opcion307">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta52" id="opcion308" value="1">
+    <label for="opcion308">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta52" id="opcion309" value="2">
+    <label for="opcion309">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta52" id="opcion310" value="3">
+  <label for="opcion310">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta52" id="opcion311" value="4">
+<label for="opcion311">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta52" id="opcion312" value="5">
+<label for="opcion312">Siempre</label>
+</div>
+<br>
+
+<p class="question">Pregunta 53: Pienso que si trato de vomitar podré bajar de peso</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta53" id="opcion313" value="0">
+    <label for="opcion313">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta53" id="opcion314" value="1">
+    <label for="opcion314">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta53" id="opcion315" value="2">
+    <label for="opcion315">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta53" id="opcion316" value="3">
+  <label for="opcion316">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta53" id="opcion317" value="4">
+<label for="opcion317">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta53" id="opcion318" value="5">
+<label for="opcion318">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 54: Necesito tener a la gente a cierta distancia (me incomoda/o si alguien trata de acercarse demasiado a mí)</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta54" id="opcion319" value="0">
+    <label for="opcion319">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta54" id="opcion320" value="1">
+    <label for="opcion320">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta54" id="opcion321" value="2">
+    <label for="opcion321">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta54" id="opcion322" value="3">
+  <label for="opcion322">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta54" id="opcion323" value="4">
+<label for="opcion323">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta54" id="opcion324" value="5">
+<label for="opcion324">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 55: Creo que el tamaño de mis muslos es normal</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta55" id="opcion325" value="0">
+    <label for="opcion325">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta55" id="opcion326" value="1">
+    <label for="opcion326">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta55" id="opcion327" value="2">
+    <label for="opcion327">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta55" id="opcion328" value="3">
+  <label for="opcion328">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta55" id="opcion329" value="4">
+<label for="opcion329">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta55" id="opcion330" value="5">
+<label for="opcion330">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 56: Me siento emocionalmente vacía/o</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta56" id="opcion331" value="0">
+    <label for="opcion331">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta56" id="opcion332" value="1">
+    <label for="opcion332">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta56" id="opcion333" value="2">
+    <label for="opcion333">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta56" id="opcion334" value="3">
+  <label for="opcion334">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta56" id="opcion335" value="4">
+<label for="opcion335">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta56" id="opcion336" value="5">
+<label for="opcion336">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 57: Puedo hablar sobre problemas o sentimientos personales</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta57" id="opcion337" value="0">
+    <label for="opcion337">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta57" id="opcion338" value="1">
+    <label for="opcion338">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta57" id="opcion339" value="2">
+    <label for="opcion339">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta57" id="opcion340" value="3">
+  <label for="opcion340">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta57" id="opcion341" value="4">
+<label for="opcion341">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta57" id="opcion342" value="5">
+<label for="opcion342">Siempre</label>
+</div>
+<br>
+  <br>
+  <br>
+<a href="#" class="next-button" onclick="nextSlide()">Siguiente</a>
+</div>
+<!--separacion-->
+<div class="question-slide">
+<p class="question">Pregunta 58: La mejor época de la vida es cuando se llega a ser adulta/o</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta58" id="opcion343" value="0">
+    <label for="opcion343">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta58" id="opcion344" value="1">
+    <label for="opcion344">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta58" id="opcion345" value="2">
+    <label for="opcion345">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta58" id="opcion346" value="3">
+  <label for="opcion346">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta58" id="opcion347" value="4">
+<label for="opcion347">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta58" id="opcion348" value="5">
+<label for="opcion348">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 59: Creo que mis nalgas (cola) son demasiado grandes</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta59" id="opcion349" value="0">
+    <label for="opcion349">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta59" id="opcion350" value="1">
+    <label for="opcion350">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta59" id="opcion351" value="2">
+    <label for="opcion351">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta59" id="opcion352" value="3">
+  <label for="opcion352">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta59" id="opcion353" value="4">
+<label for="opcion353">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta59" id="opcion354" value="5">
+<label for="opcion354">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 60: Tengo sentimientos que no puedo explicar</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta60" id="opcion355" value="0">
+    <label for="opcion355">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta60" id="opcion356" value="1">
+    <label for="opcion356">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta60" id="opcion357" value="2">
+    <label for="opcion357">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta60" id="opcion358" value="3">
+  <label for="opcion358">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta60" id="opcion359" value="4">
+<label for="opcion359">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta60" id="opcion360" value="5">
+<label for="opcion360">Siempre</label>
+</div>
+<br>  
+<p class="question">Pregunta 61: Como o bebo a escondidas</p>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta61" id="opcion361" value="0">
+    <label for="opcion361">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta61" id="opcion362" value="1">
+    <label for="opcion362">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta61" id="opcion363" value="2">
+    <label for="opcion363">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta61" id="opcion364" value="3">
+  <label for="opcion364">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta61" id="opcion365" value="4">
+<label for="opcion365">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta61" id="opcion366" value="5">
+<label for="opcion366">Siempre</label>
+</div>
+<br>
+
+<p class="question">Pregunta 62: Creo que mis caderas son del tamaño normal</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta62" id="opcion367" value="0">
+    <label for="opcion367">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta62" id="opcion368" value="1">
+    <label for="opcion368">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta62" id="opcion369" value="2">
+    <label for="opcion369">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta62" id="opcion370" value="3">
+  <label for="opcion370">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta62" id="opcion371" value="4">
+<label for="opcion371">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta62" id="opcion372" value="5">
+<label for="opcion372">Siempre</label>
+</div>
+<br>
+
+<p class="question">Pregunta 63: Me propongo metas sumamente elevadas</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta63" id="opcion373" value="0">
+    <label for="opcion373">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta63" id="opcion374" value="1">
+    <label for="opcion374">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta63" id="opcion375" value="2">
+    <label for="opcion375">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta63" id="opcion376" value="3">
+  <label for="opcion376">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta63" id="opcion377" value="4">
+<label for="opcion377">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta63" id="opcion378" value="5">
+<label for="opcion378">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 64: Cuando estoy nerviosa/o, me preocupa que voy a empezar a comer</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta64" id="opcion379" value="0">
+    <label for="opcion379">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta64" id="opcion380" value="1">
+    <label for="opcion380">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta64" id="opcion381" value="2">
+    <label for="opcion381">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta64" id="opcion382" value="3">
+  <label for="opcion382">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta64" id="opcion383" value="4">
+<label for="opcion383">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta64" id="opcion384" value="5">
+<label for="opcion384">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 65: Las personas que más me agradan terminan desilusionándome</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta65" id="opcion385" value="0">
+    <label for="opcion385">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta65" id="opcion386" value="1">
+    <label for="opcion386">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta65" id="opcion387" value="2">
+    <label for="opcion387">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta65" id="opcion388" value="3">
+  <label for="opcion388">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta65" id="opcion389" value="4">
+<label for="opcion389">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta65" id="opcion390" value="5">
+<label for="opcion390">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 66: Me avergüenza ser una persona débil</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta66" id="opcion391" value="0">
+    <label for="opcion391">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta66" id="opcion392" value="1">
+    <label for="opcion392">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta66" id="opcion393" value="2">
+    <label for="opcion393">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta66" id="opcion394" value="3">
+  <label for="opcion394">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta66" id="opcion395" value="4">
+<label for="opcion395">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta66" id="opcion396" value="5">
+<label for="opcion396">Siempre</label>
+</div>
+<br>
+  <br>
+  <br>
+<a href="#" class="next-button" onclick="nextSlide()">Siguiente</a>
+</div>
+<!--separacion-->
+<div class="question-slide">
+<p class="question">Pregunta 67: Algunas personas piensan que soy emocionalmente inestable</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta67" id="opcion397" value="0">
+    <label for="opcion397">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta67" id="opcion398" value="1">
+    <label for="opcion398">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta67" id="opcion399" value="2">
+    <label for="opcion399">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta67" id="opcion400" value="3">
+  <label for="opcion400">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta67" id="opcion401" value="4">
+<label for="opcion401">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta67" id="opcion402" value="5">
+<label for="opcion402">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 68: Me gustaría poder dominar las tentaciones de mi cuerpo</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta68" id="opcion403" value="0">
+    <label for="opcion403">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta68" id="opcion404" value="1">
+    <label for="opcion404">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta68" id="opcion405" value="2">
+    <label for="opcion405">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta68" id="opcion406" value="3">
+  <label for="opcion406">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta68" id="opcion407" value="4">
+<label for="opcion407">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta68" id="opcion408" value="5">
+<label for="opcion408">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 69: Me siento cómoda/o en la mayoría de las situaciones grupales</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta69" id="opcion409" value="0">
+    <label for="opcion409">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta69" id="opcion410" value="1">
+    <label for="opcion410">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta69" id="opcion411" value="2">
+    <label for="opcion411">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta69" id="opcion412" value="3">
+  <label for="opcion412">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta69" id="opcion413" value="4">
+<label for="opcion413">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta69" id="opcion414" value="5">
+<label for="opcion414">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 70: Digo cosas impulsivamente de las que después me arrepiento</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta70" id="opcion415" value="0">
+    <label for="opcion415">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta70" id="opcion416" value="1">
+    <label for="opcion416">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta70" id="opcion417" value="2">
+    <label for="opcion417">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta70" id="opcion418" value="3">
+  <label for="opcion418">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta70" id="opcion419" value="4">
+<label for="opcion419">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta70" id="opcion420" value="5">
+<label for="opcion420">Siempre</label>
+</div>
+<br>
+
+<p class="question">Pregunta 71: Me esfuerzo mucho por hacer cosas que me den placer</p>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta71" id="opcion421" value="0">
+    <label for="opcion421">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta71" id="opcion422" value="1">
+    <label for="opcion422">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta71" id="opcion423" value="2">
+    <label for="opcion423">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta71" id="opcion424" value="3">
+  <label for="opcion424">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta71" id="opcion425" value="4">
+<label for="opcion425">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta71" id="opcion426" value="5">
+<label for="opcion426">Siempre</label>
+</div>
+<br>
+
+<p class="question">Pregunta 72: Tengo que cuidarme de mi tendencia a consumir drogas</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta72" id="opcion427" value="0">
+    <label for="opcion427">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta72" id="opcion428" value="1">
+    <label for="opcion428">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta72" id="opcion429" value="2">
+    <label for="opcion429">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta72" id="opcion430" value="3">
+  <label for="opcion430">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta72" id="opcion431" value="4">
+<label for="opcion431">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta72" id="opcion432" value="5">
+<label for="opcion432">Siempre</label>
+</div>
+<br>
+
+<p class="question">Pregunta 73: Soy comunicativa/o con la mayoría de la gente</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta73" id="opcion433" value="0">
+    <label for="opcion433">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta73" id="opcion434" value="1">
+    <label for="opcion434">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta73" id="opcion435" value="2">
+    <label for="opcion435">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta73" id="opcion436" value="3">
+  <label for="opcion436">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta73" id="opcion437" value="4">
+<label for="opcion437">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta73" id="opcion438" value="5">
+<label for="opcion438">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 74: Tengo vínculos que me hacen sentir atrapada/o</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta74" id="opcion439" value="0">
+    <label for="opcion439">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta74" id="opcion440" value="1">
+    <label for="opcion440">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta74" id="opcion441" value="2">
+    <label for="opcion441">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta74" id="opcion442" value="3">
+  <label for="opcion442">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta74" id="opcion443" value="4">
+<label for="opcion443">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta74" id="opcion444" value="5">
+<label for="opcion444">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 75: Me siento fortalecida/o espiritualmente cuando me privo de ciertas cosas</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta75" id="opcion445" value="0">
+    <label for="opcion445">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta75" id="opcion446" value="1">
+    <label for="opcion446">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta75" id="opcion447" value="2">
+    <label for="opcion447">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta75" id="opcion448" value="3">
+  <label for="opcion448">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta75" id="opcion449" value="4">
+<label for="opcion449">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta75" id="opcion450" value="5">
+<label for="opcion450">Siempre</label>
+</div>
+<br>
+  <br>
+  <br>
+<a href="#" class="next-button" onclick="nextSlide()">Siguiente</a>
+</div>
+<!--seccion-->
+<br>
+<div class="question-slide">
+<p class="question">Pregunta 76: Los demás son capaces de entender mis problemas</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta76" id="opcion451" value="0">
+    <label for="opcion451">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta76" id="opcion452" value="1">
+    <label for="opcion452">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta76" id="opcion453" value="2">
+    <label for="opcion453">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta76" id="opcion454" value="3">
+  <label for="opcion454">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta76" id="opcion455" value="4">
+<label for="opcion455">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta76" id="opcion456" value="5">
+<label for="opcion456">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 77: Me es imposible sacar de mi cabeza ciertos pensamientos extraños</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta77" id="opcion457" value="0">
+    <label for="opcion457">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta77" id="opcion458" value="1">
+    <label for="opcion458">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta77" id="opcion459" value="2">
+    <label for="opcion459">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta77" id="opcion460" value="3">
+  <label for="opcion460">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta77" id="opcion461" value="4">
+<label for="opcion461">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta77" id="opcion462" value="5">
+<label for="opcion462">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 78: Comer por placer es un signo de debilidad</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta78" id="opcion463" value="0">
+    <label for="opcion463">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta78" id="opcion464" value="1">
+    <label for="opcion464">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta78" id="opcion465" value="2">
+    <label for="opcion465">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta78" id="opcion466" value="3">
+  <label for="opcion466">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta78" id="opcion467" value="4">
+<label for="opcion467">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta78" id="opcion468" value="5">
+<label for="opcion468">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 79: Suelo tener ataques de rabia</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta79" id="opcion469" value="0">
+    <label for="opcion469">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta79" id="opcion470" value="1">
+    <label for="opcion470">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta79" id="opcion471" value="2">
+    <label for="opcion471">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta79" id="opcion472" value="3">
+  <label for="opcion472">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta79" id="opcion473" value="4">
+<label for="opcion473">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta79" id="opcion474" value="5">
+<label for="opcion474">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 80: Creo que la gente me da el reconocimiento que merezco</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta80" id="opcion475" value="0">
+    <label for="opcion475">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta80" id="opcion476" value="1">
+    <label for="opcion476">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta80" id="opcion477" value="2">
+    <label for="opcion477">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta80" id="opcion478" value="3">
+  <label for="opcion478">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta80" id="opcion479" value="4">
+<label for="opcion479">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta80" id="opcion480" value="5">
+<label for="opcion480">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 81: Tengo que cuidarme de mi tendencia a consumir alcohol</p>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta81" id="opcion481" value="0">
+    <label for="opcion481">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta81" id="opcion482" value="1">
+    <label for="opcion482">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta81" id="opcion483" value="2">
+    <label for="opcion483">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta81" id="opcion484" value="3">
+  <label for="opcion484">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta81" id="opcion485" value="4">
+<label for="opcion485">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta81" id="opcion486" value="5">
+<label for="opcion486">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 82: Creo que pasarla bien es una pérdida de tiempo</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta82" id="opcion487" value="0">
+    <label for="opcion487">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta82" id="opcion488" value="1">
+    <label for="opcion488">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta82" id="opcion489" value="2">
+    <label for="opcion489">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta82" id="opcion490" value="3">
+  <label for="opcion490">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta82" id="opcion491" value="4">
+<label for="opcion491">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta82" id="opcion492" value="5">
+<label for="opcion492">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 83: Algunas personas piensan que me enojo fácilmente</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta83" id="opcion493" value="0">
+    <label for="opcion493">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta83" id="opcion494" value="1">
+    <label for="opcion494">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta83" id="opcion495" value="2">
+    <label for="opcion495">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta83" id="opcion496" value="3">
+  <label for="opcion496">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta83" id="opcion497" value="4">
+<label for="opcion497">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta83" id="opcion498" value="5">
+<label for="opcion498">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 84: Siento que todo me sale mal</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta84" id="opcion499" value="0">
+    <label for="opcion499">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta84" id="opcion500" value="1">
+    <label for="opcion500">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta84" id="opcion501" value="2">
+    <label for="opcion501">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta84" id="opcion502" value="3">
+  <label for="opcion502">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta84" id="opcion503" value="4">
+<label for="opcion503">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta84" id="opcion504" value="5">
+<label for="opcion504">Siempre</label>
+</div>
+<br>
+  <br>
+  <br>
+<a href="#" class="next-button" onclick="nextSlide()">Siguiente</a>
+</div>
+
+<!--Seccion-->
+<div class="question-slide">
+<p class="question">Pregunta 85: Cambio fácilmente de estado de ánimo</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta85" id="opcion505" value="0">
+    <label for="opcion505">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta85" id="opcion506" value="1">
+    <label for="opcion506">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta85" id="opcion507" value="2">
+    <label for="opcion507">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta85" id="opcion508" value="3">
+  <label for="opcion508">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta85" id="opcion509" value="4">
+<label for="opcion509">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta85" id="opcion510" value="5">
+<label for="opcion510">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 86: Me avergüenzo de las tentaciones de mi cuerpo</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta86" id="opcion511" value="0">
+    <label for="opcion511">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta86" id="opcion512" value="1">
+    <label for="opcion512">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta86" id="opcion513" value="2">
+    <label for="opcion513">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta86" id="opcion514" value="3">
+  <label for="opcion514">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta86" id="opcion515" value="4">
+<label for="opcion515">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta86" id="opcion516" value="5">
+<label for="opcion516">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 87: Me gusta más estar solo/a que en compañía de otras personas</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta87" id="opcion517" value="0">
+    <label for="opcion517">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta87" id="opcion518" value="1">
+    <label for="opcion518">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta87" id="opcion519" value="2">
+    <label for="opcion519">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta87" id="opcion520" value="3">
+  <label for="opcion520">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta87" id="opcion521" value="4">
+<label for="opcion521">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta87" id="opcion522" value="5">
+<label for="opcion522">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 88: El sufrimiento nos convierte en mejores personas</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta88" id="opcion523" value="0">
+    <label for="opcion523">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta88" id="opcion524" value="1">
+    <label for="opcion524">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta88" id="opcion525" value="2">
+    <label for="opcion525">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta88" id="opcion526" value="3">
+  <label for="opcion526">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta88" id="opcion527" value="4">
+<label for="opcion527">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta88" id="opcion528" value="5">
+<label for="opcion528">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 89: Sé que la gente me quiere</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta89" id="opcion529" value="0">
+    <label for="opcion529">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta89" id="opcion530" value="1">
+    <label for="opcion530">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta89" id="opcion531" value="2">
+    <label for="opcion531">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta89" id="opcion532" value="3">
+  <label for="opcion532">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta89" id="opcion533" value="4">
+<label for="opcion533">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta89" id="opcion534" value="5">
+<label for="opcion534">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 90: Siento la necesidad de causarme daño a mí misma/o o a otros</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta90" id="opcion535" value="0">
+    <label for="opcion535">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta90" id="opcion536" value="1">
+    <label for="opcion536">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta90" id="opcion537" value="2">
+    <label for="opcion537">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta90" id="opcion538" value="3">
+  <label for="opcion538">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta90" id="opcion539" value="4">
+<label for="opcion539">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta90" id="opcion540" value="5">
+<label for="opcion540">Siempre</label>
+</div>
+<br>
+<p class="question">Pregunta 91: Creo que me conozco bien a mí misma/o</p>    
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta91" id="opcion541" value="0">
+    <label for="opcion541">Nunca</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta91" id="opcion542" value="1">
+    <label for="opcion542">Raramente</label>
+</div>
+<div class="custom-radio-button">
+    <input type="radio" name="pregunta91" id="opcion543" value="2">
+    <label for="opcion543">Algunas veces</label>
+</div>
+<div class="custom-radio-button">
+  <input type="radio" name="pregunta91" id="opcion544" value="3">
+  <label for="opcion544">A menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta91" id="opcion545" value="4">
+<label for="opcion545">Muy a menudo</label>
+</div>
+<div class="custom-radio-button">
+<input type="radio" name="pregunta91" id="opcion546" value="5">
+<label for="opcion546">Siempre</label>
+</div>
+<div>    
+    <br>
+    <br>
+    <br>
+    <button class="acept-button" onclick="submitForm()" id="enviar_respuestas" disabled>Enviar Respuestas</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+
+<!--Script para cuestionario-->
+<script>
+let currentSlide = 0;
+const slides = document.querySelectorAll('.question-slide');
+const nextLink = document.querySelector('.next-link');
+const quizForm = document.getElementById('quizForm');
+
+function nextSlide() {
+    if (currentSlide < slides.length - 1) {
+        slides[currentSlide].style.display = 'none';
+        currentSlide++;
+        slides[currentSlide].style.display = 'block';
+    }
+    enableLinks();
+}
+
+function submitForm() {
+    quizForm.submit();
+}
+
+function enableLinks() {
+    if (currentSlide === slides.length - 1) {
+        nextLink.style.display = 'none';
+    } else {
+        nextLink.style.display = 'block';
+    }
+}
+
+for (let i = 1; i < slides.length; i++) {
+    slides[i].style.display = 'none';
+}
+
+enableLinks();
+
+
+</script>  
+<!--Script para desplazar con el botón continuar-->
+<script>
+   const botonDesplazar = document.getElementById('desplazar');
+
+    botonDesplazar.addEventListener('click', () => {    
+    const scrollY = window.scrollY;    
+    const nuevaPosicion = scrollY + 900;   
+    window.scrollTo({
+        top: nuevaPosicion,
+        behavior: 'smooth' 
+    });
+    });
+  </script>
+</body>
+{% endblock %}
+</html>

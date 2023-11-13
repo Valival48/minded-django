@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page</title>
+  <style>
+    body {
+      font-family: Poppins;
+      margin: 0;
+      padding: 0;
+      background-color: #98D0CD; /* Color de fondo central */
+    }
+
+    #navbar {
+      background-color: white;
+      color: #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+    }
+
+    #navbar-left {
+      display: flex;
+      align-items: center;
+    }
+
+    #navbar-right {
+      display: flex;
+      align-items: center;
+    }
+
+    #navbar-logo {
+      width: 50px; /* Ajusta el tamaño del logo */
+      height: auto;
+      margin-right: 10px;
+    }
+
+    #navbar-links {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    #navbar-links li {
+      display: inline;
+      margin-right: 20px;
+    }
+
+    #navbar-links li:last-child {
+      margin-right: 0;
+    }
+
+    #content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    /* Media query para pantallas más pequeñas (responsive) */
+    @media (max-width: 768px) {
+      #navbar {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #navbar-left {
+        margin-bottom: 10px;
+      }
+
+      #navbar-links li {
+        margin-right: 10px;
+      }
+    }
+
+    .card {
+      position: relative;
+      width: 1000px;
+      height: 300px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 50px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 10px;
+      margin-top: 80px;
+      margin-left: 250px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+    .button-group {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .Update-button {
+      background-color: white;
+      border-radius: 15px;
+      width: 120px;
+      height: 30px;
+    }
+  </style>
+</head>
+<body>
+<iframe src="Header.html" frameborder="0" scrolling="no" width="100%" height="100"></iframe>
+
+  <div id="content">
+    <div style="position: left; top: 80px; margin-right: 900px; color: white;">
+      <h1>Pacientes</h1>
+    </div>
+<div>
+    <div style="text-align: center; margin-top: 40px;  margin-right: 620px;" >
+        <input type="text" id="search" placeholder="Nombre del paciente" style="width: 390PX; height: 30PX; border-radius: 10PX;">
+      </div>
+      <div class="button-group" style="text-align: center; margin-top: -30px;  margin-right: 20px; ">
+        <button style="color: #41C3BC;" class="button Update-button">Actualizar</button>
+      </div>
+    </div>
+
+</div>
+    <div class="card">
+      <table>
+        <tr>
+          <th>#</th>
+          <th>Paciente</th>
+          <th>Edad</th>
+          <th>Genero</th>
+          <th>Acciones</th>
+        </tr>
+        
+        
+        <!-- Agregar más filas para más pacientes y resultados -->
+      </table>
+    </div>
+
+    <!-- Agregar el buscador debajo del título "Historial de resultados" -->
+    
+</body>
+</html>

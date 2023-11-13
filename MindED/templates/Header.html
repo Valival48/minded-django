@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MindED</title>
+    <link rel="icon" href="{% static 'Imagenes/logo.ico' %}">
+    <style>
+        *{
+            list-style:none;
+            box-sizing:border-box;
+        }
+        body{
+            font-family:Poppins;           
+        }
+        header {
+          width:100%;
+          position:fixed;
+          top:0;
+          left:0;
+          display:flex;
+          justify-content:space-between;
+          align-items:center;
+          padding:0 5%;
+          height:100px;
+          background-color: #fff;
+          z-index: 2;
+        }
+      .logo {
+        height:50px;
+      }
+      .menu{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+      }
+      .item{
+        margin:0 15px;
+        font-size:16px;
+        font-weight:400;
+        cursor:pointer;
+        color: #000000;
+        text-decoration: none;
+      }
+      .item:hover{
+        color:#41C3BC;
+      }
+      .item2{
+        margin:0 15px;
+        font-size:16px;
+        font-weight:400;
+        cursor:pointer;
+        color: #000000;
+        text-decoration: none;
+        border: 1px solid black;
+        padding: 5px 10px;
+        border-radius: 20px;
+        border: 3px solid #000000;
+        border-color: #000000;
+      }
+       .item2:hover{
+        color:#41C3BC;
+        border-color: #41C3BC;
+      }
+
+      #menu{
+        display:none;
+      }
+      .menu-icono{
+          width:25px;
+      }
+
+      label{
+        cursor:pointer;        
+      }
+
+      @media(max-width:800px){
+        .menu{
+            padding:30px;
+            margin:0;
+            text-align:right;
+            z-index: 2;
+        }
+
+        label{
+            display:initial;
+        }
+        .menu{
+            position:absolute;
+            top:60%;
+            left:0;
+            right:0;
+            display:none;
+            background-color:#FFF;
+             z-index: 2;
+        }
+        .item{
+            margin: 0 0 20px 0;
+            width:100%;
+        }
+        .item2{
+            margin: 0 0 20px 0;
+            width:100%;
+        }
+
+        #menu:checked ~ .menu{
+            display:initial;
+        }
+        .opcion{
+            margin: 0 0 5px 0;
+        }
+        .opcion2{
+            margin:15px 0 15px 0;
+        }
+      }
+      .logo_menu{
+        width: 25px;
+        height: 25px;
+        flex-shrink: 0;
+        margin-left: 15px;
+      }
+
+
+    </style>
+</head>
+<body>
+   
+<header id="Header">
+  <img src="{% static 'Imagenes/MindED.png' %}" class="logo" alt="">
+    <!--<input type="checkbox" id="menu">
+    <label for="menu">
+        <img src="{% static 'Imagenes/menu.svg' %}" class="menu-icono" alt="">
+    </label> -->
+        <ul class="menu">
+                {% if user.is_authenticated %}
+                <li class="opcion"><a class="item" href="/inicio">Inicio</a></li>
+                <li class="opcion"><a class="item" href="/paciente">Pacientes</a></li>
+                <li class="opcion"><a class="item" href="/test">Evaluación</a></li>
+                <li class="opcion"><a class="item" href="/historial">Historial</a></li>
+                <li class="opcion"><a href=""><img class="logo_menu" src="{% static 'Imagenes/account.svg' %}" alt=""></a></li>
+                <li class="opcion"><a href="/logout"><img class="logo_menu" src="{% static 'Imagenes/logout.svg' %}" alt=""></a></li>
+                {% else %}
+                <li class="opcion"><a class="item" href="/index">Inicio</a></li>
+                <li class="opcion"><a class="item" href="/index">Iniciar sesión</a></li>
+                <li class="opcion2"><a class="item2" href="/registro">Registrarse</a></li>
+                {% endif %}
+        </ul>
+</header>
+{% block content %}
+{% endblock %}
+</body>
+</html>

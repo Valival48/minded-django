@@ -1,0 +1,244 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindED | Pacientes</title>
+  <style>
+    body {
+      font-family: Poppins;
+      margin: 0;
+      padding: 0;
+      background-color: #98D0CD; /* Color de fondo central */
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      min-height: 80vh;
+    }
+
+    #content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+      
+    }
+  
+    .card {
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 50px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: auto;
+    }
+    .tabla_titulo{
+      width: 404.612px;
+      color: var(--gray-900, #212529);
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+  
+    
+    th, td {
+      padding:5px;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+      width: 50px;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    .button {
+      background-color: #41C3BC;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: Poppins;
+      font-size: 14px;
+      width: 300px;
+      height: 40px;
+      flex-shrink: 0; 
+      margin-left: 430px;
+      text-decoration: none;   
+    }
+    .lapiz{
+      padding: 10px 10px;
+      justify-content: center;
+      align-items: center;
+      flex: 1 0 0;
+      align-self: stretch;
+      background: var(--status-color-warning, #FFC107);
+      border-radius: 18px;
+    }
+    .pagina{
+      margin-bottom: -10px;
+      margin-left: 10px;
+      margin-right: 10px;
+      width: 30px;
+      height: 30px;
+    }
+   
+.pagination-container {
+  text-align: center;
+}
+
+  </style>
+</head>
+{% include "Header.html" %}
+{% block content %}
+<body>
+  <div>
+    <div id="content">
+    <div class="contenido" style="position: left; margin-left: 10px; color: white;">
+      <h1 style="margin-top: 100px;">Pacientes</h1>
+      <div>
+        <input type="text" id="search" placeholder="Buscar paciente" onkeydown="searchPatients(event)" style="font-family: poppins;
+        border-color:#00FF0000 ;width: 450PX; height: 35PX; border-radius: 10PX;margin-bottom: 15px;">       
+         <a href="/paciente/add/" class="button">Ingresar</a>
+      </div>
+      
+    </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-12">
+        <!-- card -->					
+        <div class="card">
+          <div>
+            <h5 class="tabla_titulo">Listado de pacientes</h5>
+          </div>
+            <div class="tabla">
+            <table class="table_text">
+              <thead class="tabla_headers">
+                <tr>
+                  <th>#</th>
+                  <th>Paciente</th>
+                  <th>Edad</th>
+                  <th>Género</th>                
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="pacientesTableBody">
+                {% for paciente in pacientes %}               
+                <tr >
+                  <td class="tabla_info">{{ forloop.counter }}</td>
+                  <td class="tabla_info">{{paciente.nombre}}</td>
+                  <td class="tabla_info">{{paciente.edad}}</td>
+                  <td class="tabla_info">{{paciente.genero}}</td>                                   
+                  <td class="tabla_info">
+                    <a title="Editar" href="{% url 'paciente_detail' paciente.N_Paciente %}"><img class="lapiz" src="{% static 'Imagenes/lapiz.svg' %}" alt=""></a></td>
+                </tr>
+                
+                {% endfor %}           
+              </tbody>
+              
+            </table>          
+            <div id="noRecordsMessage" style="display: none; color: rgb(0, 0, 0);padding: 50px;text-align: center;">No hay registros disponibles</div>
+            {% if mostrar_paginacion %}
+            <div class="pagination-container">
+              <div class="pagination-container" id="paginationNumbers" style="padding: 10px;">
+                <span id="pageNumber">{{ pacientes.number }}</span>
+                de {{ pacientes.paginator.num_pages }}
+              </div>              
+
+              <div class="pagination" >
+                {% if pacientes.has_previous %}
+                  <a href="?page=1"><img class="pagina" src="{% static 'Imagenes/doble_antes.png' %}" alt=""></a>
+                  <a href="?page={{ pacientes.previous_page_number }}"><img class="pagina" src="{% static 'Imagenes/antes.png' %}" alt=""></a>
+                {% endif %}
+                <span class="current-page">{{ pacientes.number }}</span>
+                {% if pacientes.has_next %}
+                  <a href="?page={{ pacientes.next_page_number }}"><img class="pagina" src="{% static 'Imagenes/siguiente.png' %}" alt=""></a>
+                  <a href="?page={{ pacientes.paginator.num_pages }}"><img class="pagina" src="{% static 'Imagenes/doble_siguiente.png' %}" alt=""></a>
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+     
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script>
+    const patientsPerPage = 5;
+  </script>
+<script>
+ function searchPatients(event) {
+  const searchTerm = document.getElementById('search').value.toLowerCase();
+  const tableBody = document.getElementById('pacientesTableBody');
+  const rows = tableBody.getElementsByTagName('tr');
+
+  let found = false;
+
+  for (let i = 0; i < rows.length; i++) {
+    const row = rows[i];
+    const patientName = row.querySelector('.tabla_info:nth-child(2)').textContent.toLowerCase();
+
+    if (patientName.includes(searchTerm)) {
+      row.style.display = 'table-row';
+      found = true;
+    } else {
+      row.style.display = 'none';
+    }
+  }
+
+  const noRecordsMessage = document.getElementById('noRecordsMessage');
+  if (found) {
+    noRecordsMessage.style.display = 'none';
+  } else {
+    noRecordsMessage.style.display = 'block';
+  }
+
+  // Mostrar u ocultar el contenedor de paginación en función de si hay resultados o no
+  const paginationContainer = document.getElementById('pagination-container');
+  if (searchTerm === '' || !found) {
+    paginationContainer.style.display = 'none';
+  } else {
+    paginationContainer.style.display = 'block';
+  }
+}
+
+
+</script>
+<script>
+  function goToPage(page) {
+    currentPage = page;
+    searchPatients({ key: 'Enter' });
+  }
+</script>
+<script>
+  const totalPages = Math.ceil(pacientes.length / patientsPerPage);
+  const paginationNumbers = document.getElementById('paginationNumbers');
+
+  if (totalPages > 1) {
+    paginationNumbers.style.display = 'block';
+    for (let i = 1; i <= totalPages; i++) {
+      const pageNumber = document.createElement('span');
+      pageNumber.textContent = i;
+      pageNumber.addEventListener('click', () => goToPage(i));
+      paginationNumbers.appendChild(pageNumber);
+    }
+  }
+</script>
+
+  
+        
+</body>
+{% endblock %}
+</html>
